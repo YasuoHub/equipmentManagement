@@ -6,92 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./public/css/index.css">
+    <link rel="stylesheet" href="public/css/jquery.vm-carousel.css">
     <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
     <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
     <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
-    <style>
-        .container{
-            display: flex;
-            flex-direction: column;
-        }
-        /*头部开始*/
-        #header{
-            position: relative;
-            display: flex;
-            flex-direction: row;
-        }
-        #headerInfo{
-            position: absolute;
-            display: flex;
-            flex-direction: row;
-            margin: 7% 0 0 2%;
-        }
-        #headerImg{
-            width: 100%;
-            height: 250px;
-            position: absolute;
-            z-index: -1;
-            background: url("./public/img/banner1.jpg") no-repeat;
-            background-size: 100%;
-        }
-        #title{
-            font-size: 40px;
-            font-weight: bold;
-            color: #CF3A33;
-            margin: 10px 0 0 20px;
-        }
-        /*头部结束*/
-        /*设备展示开始*/
-        .row{
-            margin-bottom: 15px;
-        }
-        #content{
-            position: relative;
-            margin-top: 255px;
-        }
-        #showEquipment{
-            height: 300px;
-            border:1px solid #cccccc;
-            text-align: center;
-            line-height: 250px;
-        }
-        .stuInfo{
-            height: 300px;
-            border:1px solid #cccccc;
-            text-align: center;
-            line-height: 300px;
-        }
-        .watch{
-            height: 300px;
-            border:1px solid #cccccc;
-            text-align: center;
-            line-height: 300px;
-        }
-        .update{
-            height: 300px;
-            border:1px solid #cccccc;
-            text-align: center;
-            line-height: 300px;
-        }
-        .convention{
-            height: 300px;
-            border:1px solid #cccccc;
-            text-align: center;
-            line-height: 300px;
-        }
-        /*设备展示结束*/
-        /*页脚开始*/
-        .footer{
-            width: 100%;
-            height: 200px;
-            border: 1px solid #ccc;
-            text-align: center;
-            line-height: 200px;
-        }
-        /* 页脚结束*/
-    </style>
+    <script src="public/js/jquery.vm-carousel.js"></script>
+    <script src="public/js/modernizr.js"></script>
 </head>
 <body>
 <div id="container" class="container">
@@ -100,38 +23,151 @@
             <div id="headerImg">
                 <!--<img src="./public/img/banner1.jpg" alt="" width="100%" height="250px">-->
             </div>
-            <div id="headerInfo">
-                <img src="./public/img/schLogo1.png" alt="">
-                <p id="title">实验设备管理处</p>
+            <div id="headerInfo" class="row">
+                <div class="col-xs-7">
+                    <img src="./public/img/schLogo1.png" alt="">
+                </div>
+                <div class="col-xs-5 title">
+                    <p>实验设备管理处</p>
+                </div>
             </div>
         </div>
     </div>
-    <div id="content">
-        <div class="row">
-            <div class="col-md-3 stuInfo">
-                个人信息
+
+    <div class="bodyContent">
+        <div class="line1 row">
+            <!--个人信息开始-->
+            <div class="stuInfo hidden-xs col-sm-3 col-md-3">
+                <div class="stuPhoto">
+                    <img width="80px" height="80px" src="./public/img/stuPhoto.jpg" alt="">
+                </div>
+                <div class="stuMsg">
+                    <p>李雄</p>
+                    <p>20140330</p>
+                </div>
+                <div class="stuMajor">
+                    <p>物联网工程</p>
+                </div>
+                <div class="stuWork">
+                    <p>借</p>
+                    <p>还</p>
+                    <p>反馈</p>
+                </div>
             </div>
-            <div id="showEquipment" class="col-md-9">
-                展示实验设备
+            <!--个人信息结束-->
+            <!--轮播图开始-->
+            <div class="equipInfo col-sm-9 col-md-9 col-xs-12">
+                <div class="vmc-container">
+                    <div class="vmc-viewport">
+                        <ul class="vmcarousel-centered-infitine vmc-centered vmcarousel" style="width: 2640px; transition: transform 0.5s; margin-left: -200px;">
+                            <li data-slide="2" style="width: 220px;" class=""><img src="./public/img/equip6.jpg" alt="" width="200"></li>
+                            <li data-slide="3" style="width: 220px;" class=""><img src="./public/img/equip7.jpg" alt="" width="200"></li>
+                            <li data-slide="4" style="width: 220px;" class=""><img src="./public/img/equip8.jpg" alt="" width="200"></li>
+                            <li data-slide="5" style="width: 220px;" class="vmc_active"><img src="./public/img/equip9.png" alt="" width="200"></li>
+                            <li data-slide="0" style="width: 220px;" class="vmc-clone"><img src="./public/img/equip10.jpg" alt="" width="200"></li>
+                            <li data-slide="1" style="width: 220px;" class="vmc-clone"><img src="./public/img/equip11.jpg" alt="" width="200"></li>
+                            <li data-slide="2" style="width: 220px;" class="vmc-clone"><img src="./public/img/equip12.jpg" alt="" width="200"></li>
+                            <li data-slide="3" style="width: 220px;" class="vmc-clone"><img src="./public/img/equip13.jpg" alt="" width="200"></li>
+                            <li data-slide="4" style="width: 220px;" class="vmc-clone"><img src="./public/img/equip14.jpg" alt="" width="200"></li>
+                            <li data-slide="5" style="width: 220px;" class="vmc-clone"><img src="./public/img/equip15.jpg" alt="" width="200"></li>
+                            <li data-slide="0" style="width: 220px;"><img src="./public/img/equip6.jpg" alt="" width="200"></li>
+                            <li data-slide="1" style="width: 220px;" class=""><img src="./public/img/equip10.jpg" alt="" width="200"></li>
+                        </ul>
+                    </div>
+                    <!--<a href="" class="vmc-arrow-left"></a>-->
+                    <!--<a href="" class="vmc-arrow-right"></a>-->
+                </div>
             </div>
+            <!--轮播图结束-->
         </div>
-        <div class="row">
-            <div class="col-md-3 watch">
-                值班人信息
-            </div>
-            <div class="col-md-5 update">
-                设备更新信息
-            </div>
-            <div class="col-md-4 convention">
-                实验公约
-            </div>
+        <div class="line2 row">
+            <div class="treaty col-md-8 col-sm-8 col-xs-8">实验公约</div>
+            <div class="notic col-md-4 col-sm-4 col-xs-4">公告</div>
         </div>
     </div>
-    <div class="row">
-        <div class="footer">
-            页脚信息
-        </div>
+    <!--页脚开始-->
+    <div class="row footer"><!-- row -->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6"><!-- widgets column left -->
+            <!--<h3 class="title-widget">友情链接</h3>-->
+                <div class="linkMenu">
+                    <ul class="link">
+                        <li>
+                            <a href="http://www.sicau.edu.cn">四川农业大学</a>
+                        </li>
+                        <li >
+                            <a href="http://xxgc.sicau.edu.cn">信息工程学院</a>
+                        </li>
+                        <li >
+                            <a href="http://zs.sicau.edu.cn/">四川农业大学招生网</a>
+                        </li>
+                        <li >
+                            <a href="http://tw.sicau.edu.cn/">共青团四川农业大学委员会</a>
+                        </li>
+                    </ul>
+                </div>
+        </div><!-- widgets column left end -->
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6"><!-- widgets column center -->
+            <!--<h3 class="title-widget">联系方式</h3>-->
+            <div class="col-padded col-naked">
+                <ul class="list-unstyled clear-margins"><!-- widgets -->
+                    <li id="text-5" class="widget-container widget_text">
+                        <div class="textwidget"><script language="javascript" src="/system/resource/js/news/mp4video.js"></script>
+                            <p><span microsoft="" font-size:="" style="color: rgb(119, 119, 119); font-family: ">官网：</span>
+                                <span microsoft="" font-size:="" style="color: rgb(192, 80, 77); font-family: ">&nbsp;</span>
+                                <span style="color: #D73324;">http://xxgc.sicau.edu.cn&nbsp;</span>
+                                <br microsoft="" font-size:="" white-space:="" style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: ">
+                                <span microsoft="" font-size:="" style="color: rgb(119, 119, 119); font-family: ">微信：@四川农业大学信息工程学院&nbsp;</span>
+                                <br microsoft="" font-size:="" white-space:="" style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: ">
+                                <span microsoft="" font-size:="" style="color: rgb(119, 119, 119); font-family: ">微博：@四川农业大学信息工程学院&nbsp;</span>
+                                <br microsoft="" font-size:="" white-space:="" style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: ">
+                                <span microsoft="" font-size:="" style="color: rgb(119, 119, 119); font-family: ">地址：四川省雅安市雨城区新康路46号四川农业大学第四教学楼&nbsp;</span>
+                                <br microsoft="" font-size:="" white-space:="" style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: ">
+                                <span microsoft="" font-size:="" style="color: rgb(119, 119, 119); font-family: ">邮编：625014&nbsp;&nbsp; 电话：0835-2882177</span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- widgets column center end -->
+        <div class="col-lg-3 col-md-3 col-sm-4 hidden-xs "><!-- widgets column right -->
+            <!--<h3 class="title-widget hidden-xs">关注我们</h3>-->
+            <div class="flowRow">
+                <ul class="list-unstyled clear-margins"><!-- widgets -->
+                    <li id="text-8" class="widget-container widget_text">
+                        <div class="textwidget">
+                            <div id="text-4" class="widget widget_text">
+                                <div class="textwidget">
+                                    <div class="col-md-6 col-sm-6 text-center">
+                                        微信公众<br>
+                                        <img width="90px" height="90px" src="public/img/qrcode.jpg">
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 text-center">
+                                        新浪微博<br>
+                                        <img width="90px" height="90px" src="public/img/qrcode1.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- widgets column right end -->
     </div>
+    <div class="row copyright">
+        Copyright © 2018 四川农业大学信息工程学院. Sichuan Agricultural University. All Rights Reserved
+    </div>
+    <!--页脚结束-->
 </div>
 </body>
 </html>
+<script type="text/javascript">
+    // 轮播图
+    jQuery(function($){
+        $('.vmcarousel-centered-infitine').vmcarousel({
+            centered: true,
+            start_item: 1,
+            autoplay: true,
+            infinite: true
+        });
+    });
+</script>
