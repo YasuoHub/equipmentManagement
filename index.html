@@ -15,6 +15,7 @@
     <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
     <script src="public/js/jquery.vm-carousel.js"></script>
     <script src="public/js/modernizr.js"></script>
+
 </head>
 <body>
 <div id="container" class="container">
@@ -54,7 +55,7 @@
                     </ul>
                     <form class="navbar-form navbar-left">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="请输入搜索关键字">
+                            <input id="search" type="text" class="form-control" placeholder="请输入搜索关键字"/>
                         </div>
                         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>搜索</button>
                     </form>
@@ -152,25 +153,61 @@
             <div class="equipInfo col-sm-9 col-md-9 col-xs-12">
                 <div class="contentTitle">
                     <span>
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
                         共享设备
                     </span>
                 </div>
                 <div class="vmc-container">
                     <div class="vmc-viewport">
                         <ul class="vmcarousel-centered-infitine vmc-centered vmcarousel" style="width: 2640px; transition: transform 0.5s; margin-left: -200px;">
-                            <li data-slide="2" style="width: 220px;" class=""><img src="./public/img/equip6.jpg" alt="" width="200"></li>
-                            <li data-slide="3" style="width: 220px;" class=""><img src="./public/img/equip7.jpg" alt="" width="200"></li>
-                            <li data-slide="4" style="width: 220px;" class=""><img src="./public/img/equip8.jpg" alt="" width="200"></li>
-                            <li data-slide="5" style="width: 220px;" class="vmc_active"><img src="./public/img/equip9.png" alt="" width="200"></li>
-                            <li data-slide="0" style="width: 220px;" class="vmc-clone"><img src="./public/img/equip10.jpg" alt="" width="200"></li>
-                            <li data-slide="1" style="width: 220px;" class="vmc-clone"><img src="./public/img/equip11.jpg" alt="" width="200"></li>
-                            <li data-slide="2" style="width: 220px;" class="vmc-clone"><img src="./public/img/equip12.jpg" alt="" width="200"></li>
-                            <li data-slide="3" style="width: 220px;" class="vmc-clone"><img src="./public/img/equip13.jpg" alt="" width="200"></li>
-                            <li data-slide="4" style="width: 220px;" class="vmc-clone"><img src="./public/img/equip14.jpg" alt="" width="200"></li>
-                            <li data-slide="5" style="width: 220px;" class="vmc-clone"><img src="./public/img/equip15.jpg" alt="" width="200"></li>
-                            <li data-slide="0" style="width: 220px;"><img src="./public/img/equip6.jpg" alt="" width="200"></li>
-                            <li data-slide="1" style="width: 220px;" class=""><img src="./public/img/equip10.jpg" alt="" width="200"></li>
+                            <li data-slide="2" style="width: 220px;" class="">
+                                <img src="./public/img/equip6.jpg" alt="" width="200">
+                                <p>传感器</p>
+                            </li>
+                            <li data-slide="3" style="width: 220px;" class="">
+                                <img src="./public/img/equip7.jpg" alt="" width="200">
+                                <p>传感器</p>
+                            </li>
+                            <li data-slide="4" style="width: 220px;" class="">
+                                <img src="./public/img/equip8.jpg" alt="" width="200">
+                                <p>传感器</p>
+                            </li>
+                            <li data-slide="5" style="width: 220px;" class="vmc_active">
+                                <img src="./public/img/equip9.png" alt="" width="200">
+                                <p>传感器</p>
+                            </li>
+                            <li data-slide="0" style="width: 220px;" class="vmc-clone">
+                                <img src="./public/img/equip10.jpg" alt="" width="200">
+                                <p>传感器</p>
+                            </li>
+                            <li data-slide="1" style="width: 220px;" class="vmc-clone">
+                                <img src="./public/img/equip11.jpg" alt="" width="200">
+                                <p>传感器</p>
+                            </li>
+                            <li data-slide="2" style="width: 220px;" class="vmc-clone">
+                                <img src="./public/img/equip12.jpg" alt="" width="200">
+                                <p>传感器</p>
+                            </li>
+                            <li data-slide="3" style="width: 220px;" class="vmc-clone">
+                                <img src="./public/img/equip13.jpg" alt="" width="200">
+                                <p>传感器</p>
+                            </li>
+                            <li data-slide="4" style="width: 220px;" class="vmc-clone">
+                                <img src="./public/img/equip14.jpg" alt="" width="200">
+                                <p>传感器</p>
+                            </li>
+                            <li data-slide="5" style="width: 220px;" class="vmc-clone">
+                                <img src="./public/img/equip15.jpg" alt="" width="200">
+                                <p>传感器</p>
+                            </li>
+                            <li data-slide="0" style="width: 220px;">
+                                <img src="./public/img/equip6.jpg" alt="" width="200">
+                                <p>传感器</p>
+                            </li>
+                            <li data-slide="1" style="width: 220px;" class="">
+                                <img src="./public/img/equip10.jpg" alt="" width="200">
+                                <p>传感器</p>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -186,43 +223,19 @@
             <!--<h3 class="title-widget">友情链接</h3>-->
                 <div class="linkMenu">
                     <ul class="link">
-                        <li>
-                            <a href="http://www.sicau.edu.cn">四川农业大学</a>
-                        </li>
-                        <li >
-                            <a href="http://xxgc.sicau.edu.cn">信息工程学院</a>
-                        </li>
-                        <li >
-                            <a href="http://zs.sicau.edu.cn/">四川农业大学招生网</a>
-                        </li>
-                        <li >
-                            <a href="http://tw.sicau.edu.cn/">共青团四川农业大学委员会</a>
-                        </li>
+                        <li><p><a href="http://www.sicau.edu.cn">四川农业大学</a></p></li>
+                        <li ><p><a href="http://xxgc.sicau.edu.cn">信息工程学院</a></p></li>
+                        <li ><p><a href="http://zs.sicau.edu.cn/">四川农业大学招生网</a></p></li>
+                        <li ><p><a href="http://tw.sicau.edu.cn/">共青团四川农业大学委员会</a></p></li>
                     </ul>
                 </div>
         </div><!-- widgets column left end -->
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6"><!-- widgets column center -->
-            <!--<h3 class="title-widget">联系方式</h3>-->
-            <div class="col-padded col-naked">
-                <ul class="list-unstyled clear-margins"><!-- widgets -->
-                    <li id="text-5" class="widget-container widget_text">
-                        <div class="textwidget"><script language="javascript" src="/system/resource/js/news/mp4video.js"></script>
-                            <p><span  style="color: rgb(119, 119, 119); ">官网：</span>
-                                <span  style="color: rgb(192, 80, 77);">&nbsp;</span>
-                                <span style="color: #D73324;">http://xxgc.sicau.edu.cn&nbsp;</span>
-                                <br microsoft=""  style="box-sizing: border-box; color: rgb(119, 119, 119); ">
-                                <span  style="color: rgb(119, 119, 119); ">微信：@四川农业大学信息工程学院&nbsp;</span>
-                                <br microsoft=""  style="box-sizing: border-box; color: rgb(119, 119, 119); ">
-                                <span  style="color: rgb(119, 119, 119); ">微博：@四川农业大学信息工程学院&nbsp;</span>
-                                <br microsoft=""  style="box-sizing: border-box; color: rgb(119, 119, 119); ">
-                                <span  style="color: rgb(119, 119, 119); ">地址：四川省雅安市雨城区新康路46号四川农业大学第四教学楼&nbsp;</span>
-                                <br microsoft=""  style="box-sizing: border-box; color: rgb(119, 119, 119); ">
-                                <span  style="color: rgb(119, 119, 119); ">邮编：625014&nbsp;&nbsp; 电话：0835-2882177</span>
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            <p>官网：<a href="http://xxgc.sicau.edu.cn">http://xxgc.sicau.edu.cn</a></p>
+            <p>微信：@四川农业大学信息工程学院</p>
+            <p>微博：@四川农业大学信息工程学院</p>
+            <p>地址：四川省雅安市雨城区新康路46号四川农业大学第四教学楼</p>
+            <p>邮编：625014&nbsp;&nbsp; 电话：0835-2882177</p>
         </div><!-- widgets column center end -->
         <div class="col-lg-3 col-md-3 col-sm-4 hidden-xs "><!-- widgets column right -->
             <!--<h3 class="title-widget hidden-xs">关注我们</h3>-->
@@ -608,9 +621,18 @@
         $('#noteForm')[0].reset();
     })
 
-    var noticeMsgHright = $('.noticeMsg').outerHeight();
-    if(noticeMsgHright > 260){
-        $('.noticeMsg').attr('overflow-y','scroll');
-    }
-    console.log(noticeMsgHright);
+
+    //搜索条
+    /*$(function() {
+        //获取ajxa异步数据（可以根据实际情况，从后台取数据）
+        var a = ["示波器", "传感器", "湿度传感器", "温度传感器", "气体传感器", "二极管", "电压表"];
+        //自动填充1
+        $("#search").autocomplete({
+            source: a
+        });
+    });*/
+        var noticeMsgHright = $('.noticeMsg').outerHeight();
+        if (noticeMsgHright > 260) {
+            $('.noticeMsg').attr('overflow-y', 'scroll');
+        }
 </script>

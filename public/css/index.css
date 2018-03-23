@@ -227,6 +227,7 @@ body {
 }
 .vmcarousel{
     cursor: pointer;
+    text-align: center;
 }
 /*轮播图结束*/
 
@@ -243,12 +244,8 @@ body {
 .textwidget{
     overflow: hidden;
 }
-.link li{
-    /*border-bottom: 1px solid #cccccc;*/
-    padding: 6px 0 6px 0;
-}
 .link li a{
-    color: black;
+    /*color: black;*/
 }
 a:focus, a:hover{
     text-decoration: none;
