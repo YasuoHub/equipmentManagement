@@ -1,5 +1,6 @@
-body{
-    background:url("../img/content_bg.png");
+body {
+    background: url("../img/content_bg.png");
+    color: #777777;
 }
 /*.stuInfo,#showEquipment,.watch,.update,.convention,.footer{
     background-color: #ffffff;
@@ -27,8 +28,8 @@ body{
     position: relative;
     background: url("../img/indexBanner1.jpg") no-repeat;
     background-size: cover;
-    margin:5px 0 10px 0;
-    border-radius: 10px;
+    margin:5px 0 0 0;
+    border-radius:5px 5px 0 0;
 }
 .title{
     font-size: 40px;
@@ -40,6 +41,43 @@ body{
     width: 52%;
 }
 /*头部结束*/
+/*导航条开始*/
+.navbar-form{
+    padding: 0;
+}
+.btn{
+    padding: 6px 8px;
+}
+.glyphicon{
+    margin-right: 5px;
+}
+/*.nav>li>a{*/
+    /*padding: 10px 14px;*/
+/*}*/
+.navbar{
+    border: none;
+    border-radius: 0 0 5px 5px;
+}
+.container-fluid{
+    padding-left: 0;
+    padding-right: 0;
+}
+.navbar-default .navbar-nav>.active>a{
+    color: #ffffff;
+    background-color: #003B76;
+}
+.navbar-default{
+    font-size: 15px;
+    font-weight: bold;
+}
+.navbar-collapse{
+    padding-left: 0;
+    padding-right: 5px;
+}
+.input-group{
+    width: 100%;
+}
+/*导航条结束*/
 /*设备展示开始*/
 .bodyContent{
     display: flex;
@@ -49,17 +87,31 @@ body{
 .line1,.line2{
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .stuInfo{
-    height: 250px;
     border: 1px solid #cccccc;
-    border-radius: 10px;
+    border-left: none;
+    border-top: none;
+    border-radius: 5px;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /*justify-content: center;*/
     align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+    height: 340px;
+}
+.borrow,.return,.suggest{
+    cursor: pointer;
+}
+.manager{
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #cccccc;
 }
 .stuMsg{
     display: flex;
@@ -70,7 +122,6 @@ body{
     font-size: 18px;
 }
 .stuMajor{
-    margin: 0 10px 10px 10px;
     font-size: 18px;
 
 }
@@ -83,14 +134,15 @@ body{
     font-size: 18px;
 }
 .equipInfo{
-    height: 250px;
-    margin-left: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 10px;
+    height: 300px;
+    /*margin-left: 10px;*/
+    border-radius: 5px;
     background-color: #ffffff;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     overflow: hidden;
+    padding-left: 0;
+    padding-right: 0;
 }
 .equipInfo img{
     margin: 5px;
@@ -101,17 +153,71 @@ body{
 /*设备展示结束*/
 
 /*公约、公告开始*/
+.contentTitle{
+    border-bottom: 3px solid #003B76;
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    margin-bottom: 15px;
+}
+.contentTitle>span{
+    display: inline-block;
+    height: 40px;
+    width: 120px;
+    border-radius: 5px 5px 0 0 ;
+    background-color: #003B76;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
 .treaty{
     border: 1px solid #cccccc;
-    border-radius: 10px;
+    border-left: none;
+    border-top: none;
+    height: 340px;
+    border-radius: 5px;
     background-color: #ffffff;
-    height: 300px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    padding-right: 0;
+    /*justify-content: center;*/
 }
 .notic{
     border: 1px solid #cccccc;
-    border-radius: 10px;
+    border-left: none;
+    border-top: none;
+    border-radius: 5px;
+    height: 340px;
     background-color: #ffffff;
-    height: 300px;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    padding-left: 0;
+    padding-right: 0;
+}
+.treatyMsg{
+    display: flex;
+    flex-direction: column;
+}
+.treatyMsg span{
+    font-weight: 700;
+    text-indent: 2em;
+    margin-top: 2px;
+}
+.treatyList{
+    cursor: pointer;
+    overflow-y: scroll;
+    margin-top: 10px;
+    /*-webkit-padding-start: 15px;*/
+}
+.noticeMsg{
+    cursor: pointer;
+    overflow-y: scroll;
+    /*-webkit-padding-start: 15px;*/
+}
+.noticeMsg li{
+    margin-bottom: 10px;
 }
 /*公约、公告结束*/
 
@@ -119,15 +225,15 @@ body{
 .vmc-viewport{
     margin: 10px;
 }
-.vmc-container{
-    margin-left: -20px;
+.vmcarousel{
+    cursor: pointer;
 }
 /*轮播图结束*/
 
 /*页脚开始*/
 .footer{
     border: 1px solid #ccc;
-    border-radius: 10px 10px 0 0;
+    border-radius: 5px 5px 0 0;
     background-color: #ffffff;
     display: flex;
     flex-direction: row;
@@ -157,7 +263,7 @@ a:focus, a:hover{
 }
 .copyright{
     border-top:5px solid #ea5644;
-    border-radius:0 0 10px 10px;
+    border-radius:0 0 5px 5px;
     background-color: #ffffff;
     text-align: center;
     height: 50px;
@@ -165,3 +271,9 @@ a:focus, a:hover{
     color: #cccccc;
 }
 /* 页脚结束*/
+
+/*模态框开始*/
+.suggestList p{
+    text-indent: 2em;
+}
+/*模态框结束*/

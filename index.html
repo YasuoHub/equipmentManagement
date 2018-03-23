@@ -18,6 +18,7 @@
 </head>
 <body>
 <div id="container" class="container">
+    <!--header begin-->
     <div class="row">
         <div id="header">
             <div id="headerImg">
@@ -33,11 +34,51 @@
             </div>
         </div>
     </div>
+    <!--header end-->
 
+    <!--导航条开始-->
+    <div class="row">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">机构设置</a></li>
+                        <li><a href="#">实验室管理</a></li>
+                        <li class="active"><a href="#">实验设备管理</a></li>
+                        <li><a href="#">设备共享</a></li>
+                        <li><a href="#">工作流程</a></li>
+                        <li><a href="#">资料下载</a></li>
+                        <li class="writeTreaty"><a href="#">意见反馈</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="请输入搜索关键字">
+                        </div>
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>搜索</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">管理员登陆</a></li>
+                        <li><a href="#">注销</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+    <!--导航条结束-->
+
+    <!--中间内容开始-->
     <div class="bodyContent">
         <div class="line1 row">
             <!--个人信息开始-->
-            <div class="stuInfo hidden-xs col-sm-3 col-md-3">
+            <div class="stuInfo hidden-xs col-lg-3 col-md-3 col-sm-4">
+                <div class="contentTitle">
+                    <span>
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        用户信息
+                    </span>
+                </div>
                 <div class="stuPhoto">
                     <img width="80px" height="80px" src="./public/img/stuPhoto.jpg" alt="">
                 </div>
@@ -49,14 +90,72 @@
                     <p>物联网工程</p>
                 </div>
                 <div class="stuWork">
-                    <p>借</p>
-                    <p>还</p>
-                    <p>反馈</p>
+                    <p class="borrow">借用</p>
+                    <p class="return">归还</p>
+                    <p class="suggest">建议</p>
+                </div>
+                <div class="manager">
+                    <p>管理员：zss</p>
+                    <p>联系方式：111</p>
                 </div>
             </div>
             <!--个人信息结束-->
+            <!--实验公约开始-->
+            <div class="treaty col-lg-6 col-md-6 col-sm-5">
+                <div class="contentTitle">
+                    <span>
+                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                        文明公约
+                    </span>
+                </div>
+                <div class="treatyMsg">
+                    <span>为了更好地管理实验室日常事务，提高师生的素养，营造良好的学习、科研氛围;</span>
+                    <span>构建和谐健康环境，特制定实验室公约。</span>
+                    <ul class="treatyList">
+                        <li>勤于思考、刻苦钻研、相互尊重、团结协作、关爱集体、乐于奉献。</li>
+                        <li>保持工作环境的安静，不喧哗、不聊天、不做发出噪音的活动，讨论问题到会议室或者自由讨论区，开会时将手机设置为振动状态。</li>
+                        <li>养成节约的良好习惯，倡导“爱室如家”</li>
+                        <li>禁止在实验室玩游戏、看电影、浏览与专业无关的网站或从事与本职工作无关的活动。</li>
+                        <li>禁止在实验室吸烟；吃饭、吃零食只能在指定的自由讨论区。</li>
+                        <li>本条约由实验室教师办公会议负责解释。</li>
+                        <li>本条约自公布之日起执行。</li>
+                    </ul>
+                    <span>本公约适用于实验室所有人员。</span>
+                    <span>对于违反者，实验室将酌情给予处分，并记录在相关评语和档案中。</span>
+                </div>
+            </div>
+            <!--实验公约结束-->
+            <!--公告开始-->
+            <div class="notic col-lg-3 col-md-3 col-sm-3 hidden-xs">
+                <div class="contentTitle">
+                    <span>
+                        <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
+                        公告
+                    </span>
+                </div>
+                <ul class="noticeMsg">
+                    <li>实验室及设备管理处召开新学期工作...</li>
+                    <li>实验室及设备管理处举行党的十九大...</li>
+                    <li>实验寻规探秘 安全防患杜绝 第二届...</li>
+                    <li>“环保宣讲进高校”--环保重点与环保...</li>
+                    <li>实验室及设备管理处召开新学期工作...</li>
+                    <li>实验室及设备管理处举行党的十九大...</li>
+                    <li>实验寻规探秘 安全防患杜绝 第二届...</li>
+                    <li>“环保宣讲进高校”--环保重点与环保...</li>
+                    <li>实验寻规探秘 安全防患杜绝 第二届...</li>
+                </ul>
+            </div>
+            <!--公告结束-->
+        </div>
+        <div class="line2 row">
             <!--轮播图开始-->
             <div class="equipInfo col-sm-9 col-md-9 col-xs-12">
+                <div class="contentTitle">
+                    <span>
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        共享设备
+                    </span>
+                </div>
                 <div class="vmc-container">
                     <div class="vmc-viewport">
                         <ul class="vmcarousel-centered-infitine vmc-centered vmcarousel" style="width: 2640px; transition: transform 0.5s; margin-left: -200px;">
@@ -74,17 +173,13 @@
                             <li data-slide="1" style="width: 220px;" class=""><img src="./public/img/equip10.jpg" alt="" width="200"></li>
                         </ul>
                     </div>
-                    <!--<a href="" class="vmc-arrow-left"></a>-->
-                    <!--<a href="" class="vmc-arrow-right"></a>-->
                 </div>
             </div>
             <!--轮播图结束-->
         </div>
-        <div class="line2 row">
-            <div class="treaty col-md-8 col-sm-8 col-xs-8">实验公约</div>
-            <div class="notic col-md-4 col-sm-4 col-xs-4">公告</div>
-        </div>
     </div>
+    <!--中间内容结束-->
+
     <!--页脚开始-->
     <div class="row footer"><!-- row -->
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6"><!-- widgets column left -->
@@ -112,17 +207,17 @@
                 <ul class="list-unstyled clear-margins"><!-- widgets -->
                     <li id="text-5" class="widget-container widget_text">
                         <div class="textwidget"><script language="javascript" src="/system/resource/js/news/mp4video.js"></script>
-                            <p><span microsoft="" font-size:="" style="color: rgb(119, 119, 119); font-family: ">官网：</span>
-                                <span microsoft="" font-size:="" style="color: rgb(192, 80, 77); font-family: ">&nbsp;</span>
+                            <p><span  style="color: rgb(119, 119, 119); ">官网：</span>
+                                <span  style="color: rgb(192, 80, 77);">&nbsp;</span>
                                 <span style="color: #D73324;">http://xxgc.sicau.edu.cn&nbsp;</span>
-                                <br microsoft="" font-size:="" white-space:="" style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: ">
-                                <span microsoft="" font-size:="" style="color: rgb(119, 119, 119); font-family: ">微信：@四川农业大学信息工程学院&nbsp;</span>
-                                <br microsoft="" font-size:="" white-space:="" style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: ">
-                                <span microsoft="" font-size:="" style="color: rgb(119, 119, 119); font-family: ">微博：@四川农业大学信息工程学院&nbsp;</span>
-                                <br microsoft="" font-size:="" white-space:="" style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: ">
-                                <span microsoft="" font-size:="" style="color: rgb(119, 119, 119); font-family: ">地址：四川省雅安市雨城区新康路46号四川农业大学第四教学楼&nbsp;</span>
-                                <br microsoft="" font-size:="" white-space:="" style="box-sizing: border-box; color: rgb(119, 119, 119); font-family: ">
-                                <span microsoft="" font-size:="" style="color: rgb(119, 119, 119); font-family: ">邮编：625014&nbsp;&nbsp; 电话：0835-2882177</span>
+                                <br microsoft=""  style="box-sizing: border-box; color: rgb(119, 119, 119); ">
+                                <span  style="color: rgb(119, 119, 119); ">微信：@四川农业大学信息工程学院&nbsp;</span>
+                                <br microsoft=""  style="box-sizing: border-box; color: rgb(119, 119, 119); ">
+                                <span  style="color: rgb(119, 119, 119); ">微博：@四川农业大学信息工程学院&nbsp;</span>
+                                <br microsoft=""  style="box-sizing: border-box; color: rgb(119, 119, 119); ">
+                                <span  style="color: rgb(119, 119, 119); ">地址：四川省雅安市雨城区新康路46号四川农业大学第四教学楼&nbsp;</span>
+                                <br microsoft=""  style="box-sizing: border-box; color: rgb(119, 119, 119); ">
+                                <span  style="color: rgb(119, 119, 119); ">邮编：625014&nbsp;&nbsp; 电话：0835-2882177</span>
                             </p>
                         </div>
                     </li>
@@ -157,6 +252,247 @@
         Copyright © 2018 四川农业大学信息工程学院. Sichuan Agricultural University. All Rights Reserved
     </div>
     <!--页脚结束-->
+
+    <!--实验公约模态框开始-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        文明使用设备公约
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <div class="form-group">
+                            <ul>
+                                <li>勤于思考、刻苦钻研、相互尊重、团结协作、关爱集体、乐于奉献。</li>
+                                <li>保持工作环境的安静，不喧哗、不聊天、不做发出噪音的活动，讨论问题到会议室或者自由讨论区，开会时将手机设置为振动状态。</li>
+                                <li>养成节约的良好习惯，倡导“爱室如家”</li>
+                                <li>爱护公物及个人用品，损坏或者丢失公共物品要主动赔偿，并承担相关责任与损失。</li>
+                                <li>不泄漏实验室科研成果与资料。</li>
+                                <li>禁止在实验室玩游戏、看电影、浏览与专业无关的网站或从事与本职工作无关的活动。</li>
+                                <li>禁止在实验室吸烟；吃饭、吃零食只能在指定的自由讨论区。</li>
+                                <li>遵守实验室各项管理规章制度。</li>
+                                <li>本条约由实验室教师办公会议负责解释。</li>
+                                <li>本条约自公布之日起执行。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">同意
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!--实验公约模态框结束-->
+
+    <!--公告模态框开始-->
+    <div class="modal fade" id="noticeModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="modalTitle">
+                        公告栏
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <div class="form-group">
+                            <ul>
+                                <li>勤于思考、刻苦钻研、相互尊重、团结协作、关爱集体、乐于奉献。</li>
+                                <li>保持工作环境的安静，不喧哗、不聊天、不做发出噪音的活动，讨论问题到会议室或者自由讨论区，开会时将手机设置为振动状态。</li>
+                                <li>养成节约的良好习惯，倡导“爱室如家”</li>
+                                <li>爱护公物及个人用品，损坏或者丢失公共物品要主动赔偿，并承担相关责任与损失。</li>
+                                <li>不泄漏实验室科研成果与资料。</li>
+                                <li>禁止在实验室玩游戏、看电影、浏览与专业无关的网站或从事与本职工作无关的活动。</li>
+                                <li>禁止在实验室吸烟；吃饭、吃零食只能在指定的自由讨论区。</li>
+                                <li>遵守实验室各项管理规章制度。</li>
+                                <li>本条约由实验室教师办公会议负责解释。</li>
+                                <li>本条约自公布之日起执行。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!--公告模态框结束-->
+
+    <!--借用状态模态框开始-->
+    <div class="modal fade" id="borrowModal" tabindex="-1" role="dialog" aria-labelledby="borrowModalTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="borrowModalTitle">
+                        借用反馈
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <div class="form-group">
+                            <ul>
+                                <li>设备编号：<span>T132124</span></li>
+                                <li>设备名称：<span>示波器</span></li>
+                                <li>申请时间：<span>2018-03-21</span></li>
+                                <li>领取时间：<span>2018-03-21 5:00pm</span></li>
+                                <li>归还时间：<span>2018-3-22</span></li>
+                                <li>审批状态：<span>通过</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!--借用状态模态框结束-->
+
+    <!--归还模态框开始-->
+    <div class="modal fade" id="returnModal" tabindex="-1" role="dialog" aria-labelledby="returnModalTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="returnModalTitle">
+                        归还反馈
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <div class="form-group">
+                            <ul>
+                                <li>设备编号：<span>T132124</span></li>
+                                <li>设备名称：<span>示波器</span></li>
+                                <li>申请时间：<span>2018-03-21</span></li>
+                                <li>领取时间：<span>2018-03-21 5:00pm</span></li>
+                                <li>办理人：<span>zss</span></li>
+                                <li>联系电话：<span>111</span></li>
+                                <li>审批状态：<span>待通过</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!--归还模态框结束-->
+
+    <!--建议模态框开始-->
+    <div class="modal fade" id="suggestModal" tabindex="-1" role="dialog" aria-labelledby="suggestModalTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="suggestModalTitle">
+                        建议反馈
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <div class="form-group">
+                            <ul class="suggestList">
+                                内容：
+                                <p>希望实验室能够有更多的实验设备，让每个同学都能单独操作进行实验。</p>
+                                回复：
+                                <p>谢谢同学的宝贵意见，我们会针对您提出的问题进行讨论研究，以便为同学们提供更好的服务。</p>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">确定
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!--建议模态框结束-->
+
+    <!--写建议模态框开始-->
+    <div class="modal fade" id="writeTreatyModal" tabindex="-1" role="dialog" aria-labelledby="writeTreatyModalTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="writeTreatyModalTitle">
+                        我的留言
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <div class="form-group">
+                            <form id="noteForm" class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="inputStuId3" class="col-sm-3 control-label">学号：</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="inputStuId3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputName3" class="col-sm-3 control-label">姓名：</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="inputName3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputMajor3" class="col-sm-3 control-label">专业：</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="inputMajor3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputTel3" class="col-sm-3 control-label">联系电话：</label>
+                                    <div class="col-sm-8">
+                                        <input type="tel" class="form-control" id="inputTel3">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputContent3" class="col-sm-3 control-label">留言内容：</label>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control" name="" id="inputContent3" cols="30" rows="10"></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">提交</button>
+                    <button type="button" class="reset btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!--写建议模态框结束-->
 </div>
 </body>
 </html>
@@ -170,4 +506,111 @@
             infinite: true
         });
     });
+    
+//    实验公约模态框
+    $('.treatyList').on('click','li',function () {
+        $('#myModal').modal('show');
+    })
+    $(function () {
+        $('#id_ad_search').click(function(){
+            var name = $('#id_name').val();
+            $.ajax({
+                url:'/test',
+                data:{name:name},
+                complete:function () {
+                    $('#myModal').modal('hide');
+                }
+            })
+        });
+    });
+
+//    公告模态框
+    $('.noticeMsg').on('click','li',function () {
+        $('#noticeModal').modal('show');
+    })
+    $(function () {
+        $('#id_ad_search').click(function(){
+            var name = $('#id_name').val();
+            $.ajax({
+                url:'/test',
+                data:{name:name},
+                complete:function () {
+                    $('#noticeModal').modal('hide');
+                }
+            })
+        });
+    });
+//   借用模态框
+    $('.borrow').click(function () {
+        $('#borrowModal').modal('show');
+    })
+    $(function () {
+        $('#id_ad_search').click(function(){
+            var name = $('#id_name').val();
+            $.ajax({
+                url:'/test',
+                data:{name:name},
+                complete:function () {
+                    $('#borrowModal').modal('hide');
+                }
+            })
+        });
+    });
+//    归还模态框
+    $('.return').click(function () {
+        $('#returnModal').modal('show');
+    })
+    $(function () {
+        $('#id_ad_search').click(function(){
+            var name = $('#id_name').val();
+            $.ajax({
+                url:'/test',
+                data:{name:name},
+                complete:function () {
+                    $('#returnModal').modal('hide');
+                }
+            })
+        });
+    });
+//    建议反馈模态框
+    $('.suggest').click(function () {
+        $('#suggestModal').modal('show');
+    })
+    $(function () {
+        $('#id_ad_search').click(function(){
+            var name = $('#id_name').val();
+            $.ajax({
+                url:'/test',
+                data:{name:name},
+                complete:function () {
+                    $('#suggestModal').modal('hide');
+                }
+            })
+        });
+    });
+    //写建议模态框
+    $('.writeTreaty').click(function () {
+        $('#writeTreatyModal').modal('show');
+    })
+    $(function () {
+        $('#id_ad_search').click(function(){
+            var name = $('#id_name').val();
+            $.ajax({
+                url:'/test',
+                data:{name:name},
+                complete:function () {
+                    $('#writeTreatyModal').modal('hide');
+                }
+            })
+        });
+    });
+    $('.reset').click(function () {
+        $('#noteForm')[0].reset();
+    })
+
+    var noticeMsgHright = $('.noticeMsg').outerHeight();
+    if(noticeMsgHright > 260){
+        $('.noticeMsg').attr('overflow-y','scroll');
+    }
+    console.log(noticeMsgHright);
 </script>
