@@ -270,6 +270,9 @@ a:focus, a:hover{
 /* 页脚结束*/
 
 /*模态框开始*/
+.suggestList{
+    border-bottom: 1px solid #cccccc;
+}
 .suggestList p{
     text-indent: 2em;
 }
