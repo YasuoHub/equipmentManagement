@@ -30,9 +30,17 @@ function UserDao() {
         var sql = "select * from "+users+" where ";
         for(let i=0;i<termArr.length;i++){
             if(i==termArr.length-1){
-                sql+=termArr[i]+" = '"+termValueArr[i]+"'";
+                if(isNaN(termValueArr[i])){
+                    sql+=termArr[i]+" = '"+termValueArr[i]+"'";
+                }else {
+                    sql+=termArr[i]+" = "+termValueArr[i];
+                }
             }else{
-                sql+=termArr[i]+" = '"+termValueArr[i]+"' AND ";
+                if(isNaN(termValueArr[i])){
+                    sql+=termArr[i]+" = '"+termValueArr[i]+"' AND ";
+                }else{
+                    sql+=termArr[i]+" = "+termValueArr[i]+" AND ";
+                }
             }
         }
         console.log(sql);
@@ -110,4 +118,4 @@ function UserDao() {
         connection.end();
     };
 }
-module.exports=UserDao;
+module.exports = UserDao;

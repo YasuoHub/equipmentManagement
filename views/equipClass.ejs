@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实验设备管理处</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/equipClass.css">
+    <link rel="stylesheet" href="css/jquery.vm-carousel.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <script src="js/ejs.min.js"></script>
+    <script src="js/jquery.vm-carousel.js"></script>
+    <script src="js/modernizr.js"></script>
+
+</head>
+<body>
+<div id="container" class="container">
+    <!--header begin-->
+    <div class="row">
+        <div id="header">
+            <div id="headerImg">
+                <!--<img src="./public/img/banner1.jpg" alt="" width="100%" height="250px">-->
+            </div>
+            <div id="headerInfo" class="row">
+                <div class="col-xs-7">
+                    <img src="img/schLogo1.png" alt="">
+                </div>
+                <div class="col-xs-5 title">
+                    <p>实验设备管理处</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--header end-->
+
+    <!--导航条开始-->
+    <div class="row">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">机构设置</a></li>
+                        <li><a href="#">实验室管理</a></li>
+                        <li class="active"><a href="#">实验设备管理</a></li>
+                        <li><a href="#">设备共享</a></li>
+                        <li><a href="#">工作流程</a></li>
+                        <li><a href="#">资料下载</a></li>
+                        <li class="writeTreaty"><a href="#">意见反馈</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input id="search" type="text" class="form-control" placeholder="请输入搜索关键字"/>
+                        </div>
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>搜索</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="managerLogin"><a href="manager">管理员登陆</a></li>
+                        <li class="logout"><a href="login">注销</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+    <!--导航条结束-->
+    <div class="showEquip">
+        <div ></div>
+        <div class="row showEquipRow">
+            <div class="equipInfo col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <div class="equipImg">
+                    <h4>类型：传感器</h4>
+                    <img src="img/equip1.jpg" alt="" width="280px" height="180px">
+                </div>
+            </div>
+            <div class="equipDescription col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <div class="equipTable">
+                    <table class="table table-striped table-bordered detailInfoTable">
+                        <thead>
+                        <tr>
+                            <th>型号</th>
+                            <th>名称</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>T3423</td>
+                            <td>重力传感器</td>
+                        </tr>
+                        <tr>
+                            <td>W3432</td>
+                            <td>烟雾传感器</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row showEquipRow">
+            <div class="equipImg col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <h4>类型：传感器</h4>
+                <img src="img/equip2.jpg" alt="" width="280px" height="180px">
+            </div>
+            <div class="equipDescription col-lg-9 col-md-9 col-sm-9 col-xs-9">
+            </div>
+        </div>
+        <div class="row showEquipRow">
+            <div class="equipImg col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                <h4>类型：传感器</h4>
+                <img src="img/equip3.jpg" alt="" width="280px" height="180px">
+            </div>
+            <div class="equipDescription col-lg-9 col-md-9 col-sm-9 col-xs-9">
+            </div>
+        </div>
+        <ul class="pagination">
+            <li><a href="#">&laquo;</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+        </ul>
+    </div>
+
+    <!--页脚开始-->
+    <div class="row footer"><!-- row -->
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6"><!-- widgets column left -->
+            <!--<h3 class="title-widget">友情链接</h3>-->
+            <div class="linkMenu">
+                <ul class="link">
+                    <li><p><a href="http://www.sicau.edu.cn">四川农业大学</a></p></li>
+                    <li ><p><a href="http://xxgc.sicau.edu.cn">信息工程学院</a></p></li>
+                    <li ><p><a href="http://zs.sicau.edu.cn/">四川农业大学招生网</a></p></li>
+                    <li ><p><a href="http://tw.sicau.edu.cn/">共青团四川农业大学委员会</a></p></li>
+                </ul>
+            </div>
+        </div><!-- widgets column left end -->
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-6"><!-- widgets column center -->
+            <p>官网：<a href="http://xxgc.sicau.edu.cn">http://xxgc.sicau.edu.cn</a></p>
+            <p>微信：@四川农业大学信息工程学院</p>
+            <p>微博：@四川农业大学信息工程学院</p>
+            <p>地址：四川省雅安市雨城区新康路46号四川农业大学第四教学楼</p>
+            <p>邮编：625014&nbsp;&nbsp; 电话：0835-2882177</p>
+        </div><!-- widgets column center end -->
+        <div class="col-lg-3 col-md-3 col-sm-4 hidden-xs "><!-- widgets column right -->
+            <!--<h3 class="title-widget hidden-xs">关注我们</h3>-->
+            <div class="flowRow">
+                <ul class="list-unstyled clear-margins"><!-- widgets -->
+                    <li id="text-8" class="widget-container widget_text">
+                        <div class="textwidget">
+                            <div id="text-4" class="widget widget_text">
+                                <div class="textwidget">
+                                    <div class="col-md-6 col-sm-6 text-center">
+                                        微信公众<br>
+                                        <img width="90px" height="90px" src="img/qrcode.jpg">
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 text-center">
+                                        新浪微博<br>
+                                        <img width="90px" height="90px" src="img/qrcode1.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div><!-- widgets column right end -->
+    </div>
+    <div class="row copyright">
+        Copyright © 2018 四川农业大学信息工程学院. Sichuan Agricultural University. All Rights Reserved
+    </div>
+    <!--页脚结束-->
+</div>
+</body>
+</html>
+<script>
+window.onload = function () {
+        $.ajax({
+            url: 'getInfo',
+            type: 'GET',
+            dataType: 'JSON',
+        }).done(function(obj) {
+            console.log(obj);
+        })
+}
+
+</script>
+

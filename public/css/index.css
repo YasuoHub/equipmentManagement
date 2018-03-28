@@ -128,10 +128,11 @@ body {
 .stuWork{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 .stuWork p{
-    margin: 10px 20px 0 20px;
     font-size: 18px;
+   margin: 10px;
 }
 .equipInfo{
     height: 300px;
@@ -150,6 +151,9 @@ body {
 .stuPhoto img{
     border-radius: 50%;
 }
+.stuPhoto,.treatyMsg,.noticeMsg{
+    margin-top: 15px;
+}
 /*设备展示结束*/
 
 /*公约、公告开始*/
@@ -158,7 +162,6 @@ body {
     height: 40px;
     width: 100%;
     line-height: 40px;
-    margin-bottom: 15px;
 }
 .contentTitle>span{
     display: inline-block;
@@ -192,7 +195,6 @@ body {
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    /*justify-content: center;*/
     padding-left: 0;
     padding-right: 0;
 }
@@ -210,6 +212,11 @@ body {
     overflow-y: scroll;
     margin-top: 10px;
     /*-webkit-padding-start: 15px;*/
+}
+.noticeMsgBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .noticeMsg{
     cursor: pointer;
@@ -229,7 +236,22 @@ body {
     cursor: pointer;
     text-align: center;
 }
+
+/*.vmc-clone img{
+    width: 200px;
+}*/
 /*轮播图结束*/
+
+/*热门设备展示开始*/
+.partShow{
+    height: 300px;
+    background-color: #ffffff;
+    padding-right: 0;
+    padding-left: 0;
+    border-left: 1px solid #cccccc;
+    border-radius: 0 5px 5px 5px;
+}
+/*热门设备展示结束*/
 
 /*页脚开始*/
 .footer{
@@ -275,5 +297,8 @@ a:focus, a:hover{
 }
 .suggestList p{
     text-indent: 2em;
+}
+.checkbox-inline{
+    padding-top: 0 !important;
 }
 /*模态框结束*/
