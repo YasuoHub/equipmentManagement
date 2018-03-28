@@ -6,21 +6,21 @@ exports.equipmentInfo = function (req,res) {
     if(req.session.username) {
         res.render('equipmentInfo',{});
     }else{
-        res.render('login', {})
+        res.redirect('/');
     }
 }
 exports.manager = function (req,res) {
     if(req.session.username){
         res.render('manager',{});
     }else {
-        res.render('login',{})
+        res.redirect('/');
     }
 }
 exports.equipClass = function (req,res) {
     if(req.session.username){
         res.render('equipClass',{})
     }else {
-        res.render('login',{})
+        res.redirect('/');
     }
 }
 exports.getmsg = function (req,res) {

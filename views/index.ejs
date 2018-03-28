@@ -53,7 +53,7 @@
                         <li><a href="#">设备共享</a></li>
                         <li><a href="#">工作流程</a></li>
                         <li><a href="#">资料下载</a></li>
-                        <li class="writeTreaty"><a href="#">意见反馈</a></li>
+                        <li class="writeTreaty"><a>意见反馈</a></li>
                     </ul>
                     <form class="navbar-form navbar-left">
                         <div class="form-group">
@@ -98,8 +98,8 @@
                     <p class="suggest">建议</p>
                 </div>
                 <div class="manager">
-                    <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span>管理员：zss</p>
-                    <p><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>联系方式：111</p>
+                    <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span>管理员：<%=rates[new Date().getDay()-1].rateManName%></p>
+                    <p><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>联系方式：<%=rates[new Date().getDay()-1].rateManPhone%></p>
                 </div>
             </div>
             <!--个人信息结束-->
@@ -362,14 +362,16 @@
                 <div class="modal-body borrowModal" id="borrowModal1">
                     <div class="input-group">
                         <div class="form-group">
-                            <ul v-for="borrowFbInfo in borrowFeedback">
-                               <li>设备编号：<span>{{borrowFbInfo.equipID}}</span></li>
+                            <ul v-for="borrowFbInfo in borrowFeedback" v-if="borrowFbInfo.loanStatus==0&&borrowFbInfo.returnStatus==0">
+                                <li>设备编号：<span>{{borrowFbInfo.equipID}}</span></li>
                                 <li>设备名称：<span>{{borrowFbInfo.equipName}}</span></li>
-                                <li>申请时间：<span>{{borrowFbInfo.returnApplyDate}}</span></li>
-                                <li>领取时间：<span>{{borrowFbInfo.getEquipDate}}</span></li>
-                                <li>归还时间：<span>{{borrowFbInfo.expectedReturnDate}}</span></li>
-                                <li v-if = 'borrowFbInfo.examineStatus == 0'>审批状态：<span>通过</span></li>
+                                <li>申请时间：<span>{{borrowFbInfo.addDate|time}}</span></li>
+                                <li>归还时间：<span>{{borrowFbInfo.expectedReturnDate|time}}</span></li>
+                                <li v-if = 'borrowFbInfo.examineStatus == 0'>审批状态：<span>{{borrowFbInfo.isPass=='1'?'通过':'未通过'}}</span></li>
                                 <li v-else >审批状态：<span>审核中</span></li>
+                                <li v-if = 'borrowFbInfo.examineStatus == 0&&borrowFbInfo.isPass==1'>领取时间：<span>{{borrowFbInfo.getEquipDate}}</span></li>
+                                <li v-if = 'borrowFbInfo.examineStatus == 0&&borrowFbInfo.isPass==0'>驳回原因：<span>{{borrowFbInfo.failReason=='1'?'实验设备意外损坏,请耐心等待维修结束':(borrowFbInfo.failReason=='2'?'您的信用额度不足，请持有效证件到设备管理处重新办理借用资格':(borrowFbInfo.failReason=='3'?'实验设备临时用作课堂教学，暂时无法外借，请耐心等待':'未知原因'))}}</span></li>
+
                             </ul>
                         </div>
                     </div>
@@ -377,14 +379,13 @@
                 <div class="modal-body returnModal" style="display: none">
                     <div class="input-group">
                         <div class="form-group">
-                            <ul v-for="borrowFbInfo in borrowFeedback">
+                            <ul v-for="borrowFbInfo in borrowFeedback" v-if="borrowFbInfo.loanStatus==1&&borrowFbInfo.returnExamineStatus==0&&borrowFbInfo.returnApplyDate">
                                 <li>设备编号：<span>{{borrowFbInfo.equipID}}</span></li>
-                                <li>设备名称：<span>示波器</span></li>
-                                <li>申请时间：<span>2018-03-21</span></li>
-                                <li>领取时间：<span>2018-03-21 5:00pm</span></li>
-                                <li>办理人：<span>zss</span></li>
-                                <li>联系电话：<span>111</span></li>
-                                <li>审批状态：<span>待通过</span></li>
+                                <li>设备名称：<span>{{borrowFbInfo.equipName}}</span></li>
+                                <li>归还时间：<span>{{borrowFbInfo.returnApplyDate}}</span></li>
+                                <li v-if = 'borrowFbInfo.returnExamineStatus == 0'>审批状态：<span>{{borrowFbInfo.returnApplyStatus=='1'?'通过':'未通过'}}</span></li>
+                                <li v-else >审批状态：<span>审核中</span></li>
+                                <li v-if = 'borrowFbInfo.returnExamineStatus == 0 &&borrowFbInfo.returnApplyStatus==0'>驳回原因：<span>{{borrowFbInfo.returnApplyFailReason}}</span></li>
                             </ul>
                         </div>
                     </div>
@@ -413,14 +414,16 @@
                 <div class="modal-body">
                     <div class="input-group">
                         <div class="form-group">
-                            <%suggests.forEach(function (suggest) {%>
+                            <%suggests.forEach(function (suggest,index) {%>
+                            <%if(index>=3){%>
+                            <% return;}%>
                             <ul class="suggestList">
                                 内容：
                                 <p><%=suggest.content%></p>
                                 回复：
-                                <p><%=suggest.response%></p>
+                                <p><%=suggest.reply%></p>
                                 时间：
-                                <p><%=suggest.addDate%></p>
+                                <span><%=suggest.addDate.toLocaleDateString()%></span>
                             </ul>
                             <%})%>
                         </div>
@@ -452,9 +455,8 @@
                         <div class="form-group">
                             <form id="noteForm" class="form-horizontal">
                                 <div class="form-group">
-                                    <label for="inputContent3" class="col-sm-3 control-label">内容：</label>
-                                    <div class="col-sm-8">
-                                        <textarea class="form-control" name="" id="inputContent3" cols="30" rows="10"></textarea>
+                                    <div class="col-sm-12">
+                                        <textarea class="form-control" name="" id="suggestInfo" cols="30" rows="12"></textarea>
                                     </div>
                                 </div>
                             </form>
@@ -462,7 +464,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="referbtn btn btn-default" data-dismiss="modal">提交</button>
+                    <button type="button" class="suggestInfoBtn btn btn-default" data-dismiss="modal">提交</button>
                     <button type="button" class="reset btn btn-default" data-dismiss="modal">取消</button>
                 </div>
             </div><!-- /.modal-content -->
@@ -503,8 +505,8 @@
                                     <label for="inputName" class="col-sm-3 control-label">名称：</label>
                                     <div class="col-sm-8">
                                         <select class="form-control" v-model="borrowNum" v-on:change="getCanBorroeNum(borrowNum)">
-                                            <option class="remainNum" v-for="equipArr in equipLastArr" :canBorrwNum="equipArr.num" >
-                                                {{equipArr.nowEquipName}}（剩余：{{equipArr.num}}）
+                                            <option class="remainNum" v-for="equipArr in equipLastArr" >
+                                                {{equipArr.nowEquipName}}|（剩余：{{equipArr.num}}）
                                             </option>
                                         </select>
                                     </div>
@@ -521,6 +523,12 @@
                                         <input type="date" class="form-control" id="inputDate">
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="inputNum" class="col-sm-3 control-label">联系方式：</label>
+                                    <div class="inputborrowNum col-sm-8">
+                                        <input type="text" class="form-control" id="userTel" >
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -530,11 +538,8 @@
                         <div class="form-group">
                             <form id="noteForm2" class="form-horizontal">
                                 <h5>仪器：</h5>
-                                <p><label class="checkbox-inline"><input data-equipId="a1" type="checkbox">传感器1</label></p>
-                                <p><label class="checkbox-inline"><input data-equipId="a2" type="checkbox">传感器2</label></p>
-                                <p><label class="checkbox-inline"><input data-equipId="a3" type="checkbox">传感器3</label></p>
-                                <p><label class="checkbox-inline"><input data-equipId="a4" type="checkbox">传感器4</label></p>
-                                <p>归还时间：<input class="inputReturnDate" type="date"></p>
+                                <p  v-for="borrowFbInfo in borrowFeedback" v-if="borrowFbInfo.isPass==1&&borrowFbInfo.loanStatus==1&&borrowFbInfo.examineStatus==0&&borrowFbInfo.returnStatus==0"><label class="checkbox-inline"><input name="returnEquipID" value="{{borrowFbInfo.uDid}}" type="checkbox">{{borrowFbInfo.equipName}} 编号{{borrowFbInfo.equipID}}</label></p>
+                                <p>归还时间：<input name="inputReturnDate" class="inputReturnDate" size="50px" type="text" placeholder="格式：2018.3.28下午第三节课"></p>
                             </form>
                         </div>
                     </div>

@@ -97,7 +97,7 @@ function UserDao() {
             if(i==cluarr.length-1){
                 userAddSql +=cluarr[i]+"= ? WHERE ";
                 for(let j=0;j<whereArr.length;j++){
-                        userAddSql +=whereArr[j]+"="+flag;
+                    userAddSql +=whereArr[j]+"= '"+flag+"'";
                 }
             }else{
                 userAddSql +=cluarr[i]+"= ?,";
@@ -107,7 +107,7 @@ function UserDao() {
         connection.query(userAddSql,Paramsarr,function (err, result) {
             if(!err){
                 console.log(result);
-                call();
+                call(err, result);
             }else{
                 console.log(err);
             }

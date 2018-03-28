@@ -5,11 +5,11 @@ let vm = new Vue({
         equipmentallFeedback:[],
         equipmentoneFeedback:[],
         equipLastArr:[],
-        canBorrowNum:'',
         selected:'',
         flag:true,
         remianNum:'',
-        inputNum:''
+        inputNum:'',
+        nowEquipName:''
     },
     methods:{
         getborrowFeedback:function(){
@@ -74,6 +74,7 @@ let vm = new Vue({
         },
         getCanBorroeNum:function (data) {
             var This = this;
+            This.nowEquipName=data.split('|')[0];
             This.remianNum = data.replace(/[^0-9]/ig,"");
         },
         refermsg:function () {
@@ -84,16 +85,17 @@ let vm = new Vue({
                     return;
                 }
                 var inputDate = $('#inputDate').val();
+                var userTel= $('#userTel').val();
                 $.ajax({
-                    url:'/reserveBorrow',
+                    url:'reserveBorrow',
                     type:'POST',
                     dataType:'JSON',
                     data:{
                         selectNo:This.selected,
-                        remainNum:This.remianNum,
                         inputNum:This.inputNum,
                         inputDate:inputDate,
-                        equipName:This.equipName
+                        userTel:userTel,
+                        nowEquipName:This.nowEquipName
                     },
                     complete:function () {
                         $('#returnModal').modal('hide');
@@ -101,30 +103,27 @@ let vm = new Vue({
                 }).done(function (result) {
                     console.log(result);
                 })
-            };
+            }
             if(This.flag == false){
                 var attrArray = [];
-                var $input = $('#noteForm2 input:checkbox:checked');
-                console.log($input)
-                $($input).each(function (index,el) {
-                    attrArray.push(el.getAttribute('data-equipId'));
-                    if(index == $input.length-1){
-                        console.log($('.inputReturnDate'))
-                        var inputReturnDate = $('.inputReturnDate').val();
-                        $.ajax({
-                            url:'/reserveReturn',
-                            type:'POST',
-                            dataType:'JSON',
-                            data:{
-                                attrArray:attrArray,
-                                inputReturnDate:inputReturnDate,
-                            },
-                            complete:function () {
-                                $('#returnModal').modal('hide');
-                            }
-                        }).done(function (result) {
-                            console.log(result);
-                        })
+                console.log($('#noteForm2').serialize());
+                if(!$('.inputReturnDate').val()){
+                    alert('归还时间不能为空，请按规定格式填写');
+                    return ;
+                }
+                $.ajax({
+                    url:'reserveReturn',
+                    type:'POST',
+                    dataType:'JSON',
+                    data:{returnInfor:$('#noteForm2').serialize()},
+                    complete:function () {
+                        $('#returnModal').modal('hide');
+                    }
+                }).done(function (data) {
+                    if(data=='1'){
+                        alert('申请成功，请在规定时间到实验设备管理处归还设备，逾期将影响您的信用积分！');
+                    }else {
+                        alert("未知错误，请刷新后重新操作！");
                     }
                 })
             }
@@ -138,6 +137,13 @@ let vm = new Vue({
             var This = this;
             $('#noteForm1')[0].reset();
             This.flag = false;
+            $.ajax({
+                url: 'getmsg/getBorrowInfo',
+                type: 'GET',
+                dataType: 'JSON',
+            }).done(function(userdetails) {
+                This.borrowFeedback = userdetails.returnObj;
+            })
         },
         checkNum:function () {
             var This = this;
@@ -283,3 +289,22 @@ $(function () {
 $('.reset').click(function () {
     $('#noteForm')[0].reset();
 })
+Vue.filter('time', function (value) {
+    return new Date(value).toLocaleDateString().replace(/年|月/g, "-").replace(/日/g, " ");
+})
+//发送建议信息
+$('.suggestInfoBtn').on('click',function() {
+    var This = this;
+    var suggestInfo=$('#suggestInfo').val();
+    $.ajax({
+        url: 'sendSuggestInfo',
+        type: 'POST',
+        dataType: 'text',
+        data: {suggestInfo:suggestInfo}
+    })
+        .done(function(data) {
+             if(data=='1'){
+                 alert('感谢您的建议/意见，我们期待给您提供更好的服务~')
+             }
+        });
+});
