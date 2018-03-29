@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>实验设备管理处</title>
+    <title>实验设备详情</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -13,13 +13,13 @@
     <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
     <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
     <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/vue/1.0.14/vue.js"></script>
     <script src="js/ejs.min.js"></script>
     <script src="js/jquery.vm-carousel.js"></script>
     <script src="js/modernizr.js"></script>
-
 </head>
-<body>
-<div id="container" class="container">
+<body >
+<div id="container" class="container" @scroll="wScroll($event)">
     <!--header begin-->
     <div class="row">
         <div id="header">
@@ -69,65 +69,18 @@
         </nav>
     </div>
     <!--导航条结束-->
-    <div class="showEquip">
-        <div ></div>
-        <div class="row showEquipRow">
-            <div class="equipInfo col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <div class="equipImg">
-                    <h4>类型：传感器</h4>
-                    <img src="img/equip1.jpg" alt="" width="280px" height="180px">
-                </div>
-            </div>
-            <div class="equipDescription col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                <div class="equipTable">
-                    <table class="table table-striped table-bordered detailInfoTable">
-                        <thead>
-                        <tr>
-                            <th>型号</th>
-                            <th>名称</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>T3423</td>
-                            <td>重力传感器</td>
-                        </tr>
-                        <tr>
-                            <td>W3432</td>
-                            <td>烟雾传感器</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="row showEquipRow">
-            <div class="equipImg col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <h4>类型：传感器</h4>
-                <img src="img/equip2.jpg" alt="" width="280px" height="180px">
-            </div>
-            <div class="equipDescription col-lg-9 col-md-9 col-sm-9 col-xs-9">
-            </div>
-        </div>
-        <div class="row showEquipRow">
-            <div class="equipImg col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                <h4>类型：传感器</h4>
-                <img src="img/equip3.jpg" alt="" width="280px" height="180px">
-            </div>
-            <div class="equipDescription col-lg-9 col-md-9 col-sm-9 col-xs-9">
-            </div>
-        </div>
-        <ul class="pagination">
-            <li><a href="#">&laquo;</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">&raquo;</a></li>
-        </ul>
-    </div>
 
+    <!--展示设备开始-->
+    <div class="row showEquipBox">
+        <div class="showEquipment">
+            <%include showEquip.ejs%>
+        </div>
+    </div>
+    <div class="row loadRow">
+        <button class="btn btn-default prevBtn" v-on:click="prevInfo">上一页</button>
+        <button class="btn btn-default nextBtn" v-on:click="nextInfo">下一页</button>
+    </div>
+    <!--展示设备结束-->
     <!--页脚开始-->
     <div class="row footer"><!-- row -->
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6"><!-- widgets column left -->
@@ -179,16 +132,5 @@
 </div>
 </body>
 </html>
-<script>
-window.onload = function () {
-        $.ajax({
-            url: 'getInfo',
-            type: 'GET',
-            dataType: 'JSON',
-        }).done(function(obj) {
-            console.log(obj);
-        })
-}
-
-</script>
+<script src="js/equipClass.js"></script>
 
