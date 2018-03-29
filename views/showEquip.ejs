@@ -1,5 +1,5 @@
 
-<div class="row showEquipmentRow"  data-equipNo="{{item.equipNo}}" v-for="item in loadData.slice(startNum,endNum)">
+<div class="row showEquipmentRow"  :equipNo="item.equipNo" v-for="item in loadData.slice(startNum,endNum)">
     <div class="equipImg col-lg-3 hidden-md hidden-sm hidden-xs" >
         <h4>类别：{{item.equipName}}</h4>
         <img class="thumbnail" :src='item.equipImage' width="280px" height="180px" alt="">

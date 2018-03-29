@@ -67,8 +67,8 @@ var vm = new Vue({
                 This.startNum = 0;
                 This.endNum = This.loadData.length;
         }*/
-        var no = $('.showEquipmentRow').attr('data-equipNo');
-        console.log(no);
+        var No = $('.showEquipmentRow').attr('equipNo');
+        console.log(No);
         $.ajax({
             url:'loadEquipInfo',
             type:'POST',
