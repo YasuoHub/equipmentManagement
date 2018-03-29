@@ -76,18 +76,42 @@ body {
 /*导航条结束*/
 
 /*中间内容开始*/
-.showEquipRow{
-    background-color: #ffffff;
-}
-.showEquipRow{
-    margin-bottom: 10px;
-    padding: 10px 0 10px 0;
-    border-radius: 5px;
-}
-.equipDescription{
+.showEquipmentRow {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    margin-left: 0;
+    margin-right: 0;
+    border-bottom: 1px solid #cccccc;
     justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.equipInfo{
+    margin-left: 10px;
+}
+.equipImg{
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.showEquipment{
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+}
+.paginationBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.loadRow{
+    text-align: center;
+    padding: 20px 0 20px 0;
+}
+.prevBtn{
+    margin-right: 5px;
+}
+.nextBtn{
+    margin-left: 5px;
 }
 /*中间内容结束*/
 /*页脚开始*/
