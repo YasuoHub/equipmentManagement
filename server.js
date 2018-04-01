@@ -33,16 +33,19 @@ app.get('/index',function (req,res) {
         dao.query('suggest',function (err,suggest) {
             dao.query('rate',function (err,rates) {
                 dao.query('treaty',function (err,treaty) {
-                    dao.queryByTerm(['stuID'],[req.session.username],'users',function (err,users) {
-                        res.render('index',{
-                            datas:data,
-                            suggests:suggest,
-                            treatys:treaty,
-                            user:users,
-                            rates:rates
+                    dao.query('equipmentall',function (err,equipsAll) {
+                    dao.queryByTerm(['stuID'], [req.session.username], 'users', function (err, users) {
+                        res.render('index', {
+                            datas: data,
+                            suggests: suggest,
+                            treatys: treaty,
+                            user: users,
+                            rates: rates,
+                            equipsAll:equipsAll
                         });
                         console.log(users)
                     })
+                  })
                 })
             })
         })
@@ -50,7 +53,28 @@ app.get('/index',function (req,res) {
 })
 
 app.get('/equipmentInfo',userController.equipmentInfo);
-
+app.get('/lazyLoad',function (req,res) {
+    var lazyData=[];
+    dao.query('equipmentall',function (err,data) {
+        dao.query('equipmentone',function (err,result) {
+                let nowObj={};
+                let nowArr=[];
+                 for(let i=0;i<data.length;i++){
+                     nowArr=[];
+                     nowObj={};
+                     for(let j=0;j<result.length;j++){
+                         if(data[i].equipAllNo==result[j].equipNo){
+                             nowArr.push(result[j]);
+                         }
+                     }
+                     nowObj={equipName:data[i].equipName,equipArr:nowArr,equipImage:data[i].equipImage};
+                     lazyData.push(nowObj);
+                 }
+                console.log(data);
+                return res.json({lazyData:lazyData});
+        })
+    })
+})
 app.get('/',userController.login);
 app.post('/login',urlencodedParser,function (req,res) {
     var username= req.body.username;
@@ -107,8 +131,8 @@ app.post('/sendSuggestInfo',urlencodedParser,function (req,res) {
 });
 app.get('/manager',userController.manager);
 
-app.get('/equipClass',userController.equipClass);
-
+// app.get('/equipClass',userController.equipClass);
+app.get('/equipClassInfo',userController.equipClassGetInfo);
 //动态路由
 app.get('/getmsg/:id',userController.getmsg);
 
@@ -198,4 +222,4 @@ app.post('/reserveReturn',urlencodedParser,function (req,res) {
      }
 
 });
-app.listen(8080);
+app.listen(8081);

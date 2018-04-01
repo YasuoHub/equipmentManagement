@@ -51,4 +51,20 @@ exports.getmsg = function (req,res) {
             break;
     }
 }
+exports.equipClassGetInfo = function (req,res) {
+    var dao = new UserDao();
+    dao.init();
+    var returnObj = null;
+    var router = req.query.id;
+    //termArr,termValueArr,users,call
+    dao.queryByTerm(['equipAllNo'],[router],'equipmentAll',function (err,data) {
+        dao.queryByTerm(['equipNo'],[router],'equipmentone',function (err,result) {
+            returnObj={equipClassName:data,equipInfoArr:result};
+            dao.finish();
+            console.log(returnObj)
+            return res.render('equipClass',{equipClassInfo:returnObj});
+        })
+    })
+
+}
 

@@ -54,12 +54,12 @@
                         <li><a href="#">资料下载</a></li>
                         <li class="writeTreaty"><a>意见反馈</a></li>
                     </ul>
-                    <form class="navbar-form navbar-left">
+                    <!--<form class="navbar-form navbar-left">
                         <div class="form-group">
                             <input id="search" type="text" class="form-control" placeholder="请输入搜索关键字"/>
                         </div>
                         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>搜索</button>
-                    </form>
+                    </form>-->
                     <ul class="nav navbar-nav navbar-right">
                         <li class="managerLogin"><a href="manager">管理员登陆</a></li>
                         <li class="logout"><a href="login">注销</a></li>
@@ -97,8 +97,8 @@
                     <p class="suggest">建议</p>
                 </div>
                 <div class="manager">
-                    <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span>管理员：<%=rates[new Date().getDay()-1].rateManName%></p>
-                    <p><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>联系方式：<%=rates[new Date().getDay()-1].rateManPhone%></p>
+                    <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span>管理员：<%=rates[new Date().getDay()].rateManName%></p>
+                    <p><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>联系方式：<%=rates[new Date().getDay()].rateManPhone%></p>
                 </div>
             </div>
             <!--个人信息结束-->
@@ -153,6 +153,23 @@
                 <div class="vmc-container">
                     <div class="vmc-viewport">
                         <ul class="vmcarousel-centered-infitine vmc-centered vmcarousel" style="width: 1800px; transition: transform 0.5s; margin-left: -150px;">
+                            <% if (equipsAll.length) { %>
+                            <% equipsAll.forEach(function(equipAll,index){ %>
+                            <li data-slide="<%=index%>" >
+                                <img class="thumbnail" src="<%=equipAll.equipImage%>" alt="" width="150" height="150">
+                                <p><%=equipAll.equipName%></p>
+                            </li>
+                            <% }) %>
+                            <% } %>
+
+                            <!--<li data-slide="0" >
+                                <img class="thumbnail" src="img/equip6.jpg" alt="" width="150">
+                                <p>传感器</p>
+                            </li>
+                            <li data-slide="1"  class="">
+                                <img class="thumbnail" src="img/equip10.jpg" alt="" width="150">
+                                <p>传感器</p>
+                            </li>
                             <li data-slide="2"  class="">
                                 <img class="thumbnail" src="img/equip6.jpg" alt="" width="150">
                                 <p>传感器</p>
@@ -164,43 +181,9 @@
                             <li data-slide="4"  class="">
                                 <img class="thumbnail" src="img/equip8.jpg" alt="" width="150">
                                 <p>传感器</p>
-                            </li>
-                            <li data-slide="5"  class="vmc_active">
-                                <img class="thumbnail" src="img/equip9.png" alt="" width="150">
-                                <p>传感器</p>
-                            </li>
-                            <li data-slide="0"  class="vmc-clone">
-                                <img class="thumbnail" src="img/equip10.jpg" alt="" width="150">
-                                <p>传感器</p>
-                            </li>
-                            <li data-slide="1"  class="vmc-clone">
-                                <img class="thumbnail" src="img/equip11.jpg" alt="" width="150">
-                                <p>传感器</p>
-                            </li>
-                            <li data-slide="2"  class="vmc-clone">
-                                <img class="thumbnail" src="img/equip12.jpg" alt="" width="150">
-                                <p>传感器</p>
-                            </li>
-                            <li data-slide="3"  class="vmc-clone">
-                                <img class="thumbnail" src="img/equip13.jpg" alt="" width="150">
-                                <p>传感器</p>
-                            </li>
-                            <li data-slide="4"  class="vmc-clone">
-                                <img class="thumbnail" src="img/equip14.jpg" alt="" width="150">
-                                <p>传感器</p>
-                            </li>
-                            <li data-slide="5"  class="vmc-clone">
-                                <img class="thumbnail" src="img/equip15.jpg" alt="" width="150">
-                                <p>传感器</p>
-                            </li>
-                            <li data-slide="0" >
-                                <img class="thumbnail" src="img/equip6.jpg" alt="" width="150">
-                                <p>传感器</p>
-                            </li>
-                            <li data-slide="1"  class="">
-                                <img class="thumbnail" src="img/equip10.jpg" alt="" width="150">
-                                <p>传感器</p>
-                            </li>
+                            </li>-->
+
+
                         </ul>
                     </div>
                 </div>
@@ -215,7 +198,9 @@
                     </span>
                 </div>
                 <div class="showContent">
-
+                    <button class="btn btnClass" id="A"  @click="getClassInfo">示波器</button>
+                    <button class="btn btnClass" id="B"  @click="getClassInfo">传感器</button>
+                    <button class="btn btnClass" id="C"  @click="getClassInfo">二极管</button>
                 </div>
             </div>
             <!--热门设备展示结束-->
