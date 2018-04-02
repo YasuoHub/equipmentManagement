@@ -263,34 +263,12 @@ $('#returnApplyTitle').click((function () {
 $('.suggest').click(function () {
     $('#suggestModal').modal('show');
 })
-$(function () {
-    $('#id_ad_search').click(function(){
-        var name = $('#id_name').val();
-        $.ajax({
-            url:'/test',
-            data:{name:name},
-            complete:function () {
-                $('#suggestModal').modal('hide');
-            }
-        })
-    });
-});
+
 //写建议模态框
 $('.writeTreaty').click(function () {
     $('#writeTreatyModal').modal('show');
 })
-$(function () {
-    $('#id_ad_search').click(function(){
-        var name = $('#id_name').val();
-        $.ajax({
-            url:'/test',
-            data:{name:name},
-            complete:function () {
-                $('#writeTreatyModal').modal('hide');
-            }
-        })
-    });
-});
+
 $('.reset').click(function () {
     $('#noteForm')[0].reset();
 })
