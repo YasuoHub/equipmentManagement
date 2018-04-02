@@ -62,7 +62,7 @@
                     </form>-->
                     <ul class="nav navbar-nav navbar-right">
                         <li class="managerLogin"><a href="manager">管理员登陆</a></li>
-                        <li class="logout"><a href="login">注销</a></li>
+                        <li class="logout"><a href="/">注销</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -75,14 +75,15 @@
         <div class="showEquipment">
             <div class="row showEquipmentRow" >
                 <div class="equipImg col-lg-3 hidden-md hidden-sm hidden-xs" >
-                    <h4>类别：<%=equipClassInfo.equipClassName[0].equipName%></h4>
-                    <img class="thumbnail" src="<%=equipClassInfo.equipClassName[0].equipImage%>" width="280px" height="180px" alt="">
+                    <h4 style="color: #003B76;font-weight: 600">类别：<%=equipClassInfo.equipClassName[0].equipName%></h4>
+                    <img class="thumbnail" src="<%=equipClassInfo.equipClassName[0].equipImage%>" width="100%" height="100%" alt="">
                 </div>
                 <div class="equipInfo col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                    <div class="">
-                        <table class="table row table-striped table-bordered">
+                    <div class="scrollDiv">
+                        <table class="table table-striped table-bordered ">
                             <thead>
                             <tr>
+                                <th>序号</th>
                                 <th>名称</th>
                                 <th>编号</th>
                                 <th>可借</th>
@@ -91,12 +92,13 @@
                             </thead>
                             <% if (equipClassInfo.equipInfoArr.length) { %>
                             <tbody>
-                            <% equipClassInfo.equipInfoArr.forEach(function(returninfo){ %>
+                            <% equipClassInfo.equipInfoArr.forEach(function(returninfo,index){ %>
                             <tr>
+                                <td><%=index+1%></td>
                                 <td><%=returninfo.equipName%></td>
                                 <td class="center"><%=returninfo.equipID%></td>
                                 <td class="center"><%=returninfo.canBorrow==1?'可借':'不可借'%></td>
-                                <td class="center"> <button @click="borrowBtn" class="btn <%=returninfo.canBorrow==1?'':'disabled'%> btn-primary borrowbtn">我要借</button></td>
+                                <td class="center"> <a href="/equipDetail?id=<%=returninfo.equipID%>">查看详情</a></td>
                             </tr>
                             <% }) %>
                             </tbody>

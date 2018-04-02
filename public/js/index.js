@@ -308,3 +308,11 @@ $('.suggestInfoBtn').on('click',function() {
              }
         });
 });
+
+$('.treatyList').mouseover(function () {
+    $('.treatyList').css('overflow-y','scroll');
+})
+$('.treatyList').mouseout(function () {
+    $('.treatyList').css('overflow-y','hidden');
+})
+console.log($('.suggestBack').children())

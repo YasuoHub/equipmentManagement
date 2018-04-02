@@ -21,7 +21,7 @@
                     <td><%=returninfo.equipName%></td>
                     <td class="center"><%=returninfo.equipID%></td>
                     <td class="center"><%=returninfo.canBorrow==1?'可借':'不可借'%></td>
-                    <td class="center"> <button @click="borrowBtn" class="btn <%=returninfo.canBorrow==1?'':'disabled'%> btn-primary borrowbtn">我要借</button></td>
+                    <td class="center"> <button @click="borrowBtn" class="btn <%=returninfo.canBorrow==1?'':'disabled'%> btn-primary borrowbtn">详情</button></td>
                 </tr>
                 <% }) %>
                 </tbody>

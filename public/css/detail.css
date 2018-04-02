@@ -114,15 +114,20 @@ body {
 .navbar{
     margin-bottom: 10px;
 }
+#borrowModalTitle{
+    color: #003B76;
+    font-weight: 600;
+}
 .borrowbtn{
     padding: 8px 11px;
     font-size: 17px;
     background-color: #003B76;
     border-color: #003B76;
+    margin-top: 10px;
 }
 .equipmentImg >img{
     width: 350px;
-    height: 260px;
+    height: 200px;
 }
 .equipmentInfoTable{
     margin-bottom: 10px;
@@ -137,6 +142,7 @@ body {
 }
 .state{
     line-height: 44px;
+    padding-right: 10px;
 }
 .equipState{
     display: flex;
@@ -193,3 +199,14 @@ a:focus, a:hover{
     color: #cccccc;
 }
 /* 页脚结束*/
+/*模态框*/
+.modal-header{
+    border-bottom: 2px solid #003B76;
+}
+.modal-footer{
+    border-top: 2px solid #003B76;
+}
+.modal-footer .btn{
+    background: #003B76;
+    color: white;
+}

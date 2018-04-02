@@ -81,7 +81,6 @@ body {
     flex-direction: row;
     margin-left: 0;
     margin-right: 0;
-    border-bottom: 1px solid #cccccc;
     justify-content: space-between;
     margin-bottom: 10px;
     align-items: center;
@@ -89,9 +88,8 @@ body {
 .equipInfo{
     margin-left: 10px;
 }
-.equipImg{
-    margin-right: 10px;
-    margin-bottom: 10px;
+.equipImg h4{
+    margin-bottom: 20px;
 }
 .showEquipment{
     border-radius: 5px;
@@ -113,10 +111,20 @@ body {
 .nextBtn{
     margin-left: 5px;
 }
+.scrollDiv{
+    overflow-y: scroll;
+    height: 350px;
+    width: 100%;
+}
+::-webkit-scrollbar{width:10px;background-color:transparent}
+::-webkit-scrollbar-thumb{background-color:#003B76;border-radius:10px;border:2px solid #e1e5ea;}
+::-webkit-scrollbar-thumb:hover{background-color:#aab1bc;}
+::-webkit-scrollbar-thumb:active{border:0;border-radius:0;background-color:#737ed7}
+::-webkit-scrollbar-thumb:window-inactive{background-color:#003B76}
 /*中间内容结束*/
 /*页脚开始*/
 .footer{
-    border: 1px solid #ccc;
+    margin-top: 20px;
     border-radius: 5px 5px 0 0;
     background-color: #ffffff;
     display: flex;
@@ -150,4 +158,5 @@ a:focus, a:hover{
     line-height: 50px;
     color: #cccccc;
 }
+
 /* 页脚结束*/

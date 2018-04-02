@@ -29,29 +29,32 @@ app.set('views engine','ejs');
 app.set('views',__dirname + '/views');
 
 app.get('/index',function (req,res) {
-    dao.query('board',function (err,data) {
-        dao.query('suggest',function (err,suggest) {
-            dao.query('rate',function (err,rates) {
-                dao.query('treaty',function (err,treaty) {
-                    dao.query('equipmentall',function (err,equipsAll) {
-                    dao.queryByTerm(['stuID'], [req.session.username], 'users', function (err, users) {
-                        res.render('index', {
-                            datas: data,
-                            suggests: suggest,
-                            treatys: treaty,
-                            user: users,
-                            rates: rates,
-                            equipsAll:equipsAll
-                        });
-                        console.log(users)
+    if(req.session.username) {
+        dao.query('board', function (err, data) {
+            dao.queryByTerm(['stuID'], [req.session.username], 'suggest', function (err, suggest) {
+                dao.query('rate', function (err, rates) {
+                    dao.query('treaty', function (err, treaty) {
+                        dao.query('equipmentall', function (err, equipsAll) {
+                            dao.queryByTerm(['stuID'], [req.session.username], 'users', function (err, users) {
+                                res.render('index', {
+                                    datas: data,
+                                    suggests: suggest,
+                                    treatys: treaty,
+                                    user: users,
+                                    rates: rates,
+                                    equipsAll: equipsAll
+                                });
+                                console.log(users)
+                            })
+                        })
                     })
-                  })
                 })
             })
         })
-    })
+    }else {
+        res.redirect('/');
+    }
 })
-
 app.get('/equipmentInfo',userController.equipmentInfo);
 app.get('/lazyLoad',function (req,res) {
     var lazyData=[];
@@ -129,10 +132,11 @@ app.post('/sendSuggestInfo',urlencodedParser,function (req,res) {
         return  res.end('1');
     }) ;
 });
-app.get('/manager',userController.manager);
 
-// app.get('/equipClass',userController.equipClass);
+app.get('/manager',userController.manager);
+app.get('/equipClass',userController.equipClass);
 app.get('/equipClassInfo',userController.equipClassGetInfo);
+app.get('/equipDetail',userController.equipDetail);
 //动态路由
 app.get('/getmsg/:id',userController.getmsg);
 

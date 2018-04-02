@@ -23,6 +23,13 @@ exports.equipClass = function (req,res) {
         res.redirect('/');
     }
 }
+exports.index = function (req,res) {
+    if(req.session.username){
+        res.render('index',{})
+    }else {
+        res.redirect('/');
+    }
+}
 exports.getmsg = function (req,res) {
     var dao = new UserDao();
     dao.init();
@@ -67,4 +74,22 @@ exports.equipClassGetInfo = function (req,res) {
     })
 
 }
+exports.equipDetail = function (req,res) {
+    var dao = new UserDao();
+    dao.init();
+    var returnObj = null;
+    var router = req.query.id;
+    var router1=router.replace(/[^a-z]/ig,"");
+    console.log(router);
+    console.log(req.url);
+    //termArr,termValueArr,users,call
+    dao.queryByTerm(['equipAllNo'],[router1],'equipmentAll',function (err,data) {
+        dao.queryByTerm(['equipID'],[router],'equipmentone',function (err,result) {
+            returnObj={equipClassName:data,equipInfoArr:result};
+            dao.finish();
+            console.log(returnObj)
+            return res.render('equipmentInfo',{equipClassInfo:returnObj});
+        })
+    })
 
+}

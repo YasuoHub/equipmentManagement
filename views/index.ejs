@@ -60,9 +60,9 @@
                         </div>
                         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>搜索</button>
                     </form>-->
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="loginUl nav navbar-nav navbar-right">
                         <li class="managerLogin"><a href="manager">管理员登陆</a></li>
-                        <li class="logout"><a href="login">注销</a></li>
+                        <li class="logout"><a href="/">注销</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -74,7 +74,7 @@
     <div class="bodyContent">
         <div class="line1 row">
             <!--个人信息开始-->
-            <div class="stuInfo hidden-xs col-lg-3 col-md-3 col-sm-4">
+            <div class="stuInfo col-lg-3 col-md-4 col-sm-4 hidden-xs">
                 <div class="contentTitle">
                     <span>
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
@@ -82,7 +82,12 @@
                     </span>
                 </div>
                 <div class="stuPhoto">
-                    <img width="80px" height="80px" src="img/stuPhoto.jpg" alt="">
+                    <% if(user[0].sex == 0){%>
+                    <img width="80px" height="80px" src="img/boy.jpg" alt="">
+                    <%}%>
+                    <% if(user[0].sex == 1){%>
+                    <img width="80px" height="80px" src="img/girl.jpg" alt="">
+                    <%}%>
                 </div>
                 <div class="stuMsg">
                     <p><%= user[0].stuName%></p>
@@ -103,7 +108,7 @@
             </div>
             <!--个人信息结束-->
             <!--实验公约开始-->
-            <div class="treaty col-lg-6 col-md-6 col-sm-5">
+            <div class="treaty col-lg-6 col-md-7 col-sm-5 col-xs-12">
                 <div class="contentTitle">
                     <span>
                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
@@ -111,20 +116,20 @@
                     </span>
                 </div>
                 <div class="treatyMsg">
-                    <span>为了更好地管理实验室日常事务，提高师生的素养，营造良好的学习、科研氛围;</span>
-                    <span>构建和谐健康环境，特制定实验室公约。</span>
+                    <span class="hidden-xs">为了更好地管理实验室日常事务，提高师生的素养，营造良好的学习、科研氛围;</span>
+                    <span class="hidden-xs">构建和谐健康环境，特制定实验室公约。</span>
                     <ul class="treatyList">
                         <%treatys.forEach(function (treaty) {%>
                         <li><%=treaty.content%></li>
                         <%})%>
                     </ul>
-                    <span>本公约适用于实验室所有人员。</span>
-                    <span>对于违反者，实验室将酌情给予处分，并记录在相关评语和档案中。</span>
+                    <span class="hidden-xs">本公约适用于实验室所有人员。</span>
+                    <span class="hidden-xs">对于违反者，实验室将酌情给予处分，并记录在相关评语和档案中。</span>
                 </div>
             </div>
             <!--实验公约结束-->
             <!--公告开始-->
-            <div class="notic col-lg-3 col-md-3 col-sm-3 hidden-xs">
+            <div class="notic col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="contentTitle">
                     <span>
                         <span class="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
@@ -143,25 +148,24 @@
         </div>
         <div class="line2 row">
             <!--轮播图开始-->
-            <div class="equipInfo col-lg-7 col-sm-7 col-md-7 col-xs-7">
+            <div class="equipInfo col-lg-8 col-sm-8 col-md-8 col-xs-8">
                 <div class="contentTitle">
                     <span>
                         <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-                        共享设备
+                        部分展示
                     </span>
                 </div>
                 <div class="vmc-container">
                     <div class="vmc-viewport">
-                        <ul class="vmcarousel-centered-infitine vmc-centered vmcarousel" style="width: 1800px; transition: transform 0.5s; margin-left: -150px;">
+                        <ul class="vmcarousel-centered-infitine vmc-centered vmcarousel" style="width: 1800px; transition: transform 0.5s; margin-left: -170px;">
                             <% if (equipsAll.length) { %>
                             <% equipsAll.forEach(function(equipAll,index){ %>
                             <li data-slide="<%=index%>" >
-                                <img class="thumbnail" src="<%=equipAll.equipImage%>" alt="" width="150" height="150">
-                                <p><%=equipAll.equipName%></p>
+                                <img class="thumbnail" src="<%=equipAll.equipImage%>" alt="" width="170px" height="170px">
+                                <p class="imgMsg"><%=equipAll.equipName%></p>
                             </li>
                             <% }) %>
                             <% } %>
-
                             <!--<li data-slide="0" >
                                 <img class="thumbnail" src="img/equip6.jpg" alt="" width="150">
                                 <p>传感器</p>
@@ -182,25 +186,25 @@
                                 <img class="thumbnail" src="img/equip8.jpg" alt="" width="150">
                                 <p>传感器</p>
                             </li>-->
-
-
                         </ul>
                     </div>
                 </div>
             </div>
             <!--轮播图结束-->
             <!--热门设备展示开始-->
-            <div class="partShow clo-lg-5 col-sm-5 col-md-5 col-xs-5">
+            <div class="partShow clo-lg-4 col-sm-4 col-md-4 col-xs-4">
                 <div class="contentTitle">
                     <span>
                         <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-                        热门设备
+                        设备列表
                     </span>
                 </div>
                 <div class="showContent">
-                    <button class="btn btnClass" id="A"  @click="getClassInfo">示波器</button>
-                    <button class="btn btnClass" id="B"  @click="getClassInfo">传感器</button>
-                    <button class="btn btnClass" id="C"  @click="getClassInfo">二极管</button>
+                    <ul class="showEquip list-inline">
+                        <%equipsAll.forEach(function (equipsAll) {%>
+                        <li><a href="equipClassInfo?id=<%=equipsAll.equipAllNo%>"><%=equipsAll.equipName%></a></li>
+                        <%})%>
+                    </ul>
                 </div>
             </div>
             <!--热门设备展示结束-->
@@ -344,15 +348,15 @@
                     </h4>
                 </div>
                 <div class="modal-body borrowModal" id="borrowModal1">
-                    <div class="input-group">
-                        <div class="form-group">
-                            <ul v-for="borrowFbInfo in borrowFeedback" v-if="borrowFbInfo.loanStatus==0&&borrowFbInfo.returnStatus==0">
+                    <div class="input-group" v-for="borrowFbInfo in borrowFeedback" v-if="borrowFbInfo.loanStatus==0&&borrowFbInfo.returnStatus==0">
+                        <div class="form-group" >
+                            <ul >
                                 <li>设备编号：<span>{{borrowFbInfo.equipID}}</span></li>
                                 <li>设备名称：<span>{{borrowFbInfo.equipName}}</span></li>
                                 <li>申请时间：<span>{{borrowFbInfo.addDate|time}}</span></li>
                                 <li>归还时间：<span>{{borrowFbInfo.expectedReturnDate|time}}</span></li>
-                                <li v-if = 'borrowFbInfo.examineStatus == 0'>审批状态：<span>{{borrowFbInfo.isPass=='1'?'通过':'未通过'}}</span></li>
-                                <li v-else >审批状态：<span>审核中</span></li>
+                                <li class="pass" v-if = 'borrowFbInfo.examineStatus == 0'>审批状态：<span>{{borrowFbInfo.isPass=='1'?'通过':'未通过'}}</span></li>
+                                <li class="checking"  v-else >审批状态：<span>审核中</span></li>
                                 <li v-if = 'borrowFbInfo.examineStatus == 0&&borrowFbInfo.isPass==1'>领取时间：<span>{{borrowFbInfo.getEquipDate}}</span></li>
                                 <li v-if = 'borrowFbInfo.examineStatus == 0&&borrowFbInfo.isPass==0'>驳回原因：<span>{{borrowFbInfo.failReason=='1'?'实验设备意外损坏,请耐心等待维修结束':(borrowFbInfo.failReason=='2'?'您的信用额度不足，请持有效证件到设备管理处重新办理借用资格':(borrowFbInfo.failReason=='3'?'实验设备临时用作课堂教学，暂时无法外借，请耐心等待':'未知原因'))}}</span></li>
 
@@ -397,17 +401,20 @@
                 </div>
                 <div class="modal-body">
                     <div class="input-group">
-                        <div class="form-group">
+                        <div class="form-group suggestBack">
                             <%suggests.forEach(function (suggest,index) {%>
                             <%if(index>=3){%>
                             <% return;}%>
                             <ul class="suggestList">
-                                内容：
-                                <p><%=suggest.content%></p>
-                                回复：
-                                <p><%=suggest.reply%></p>
-                                时间：
-                                <span><%=suggest.addDate.toLocaleDateString()%></span>
+                                <li>
+                                    内容： <span><%=suggest.content%></span>
+                                </li>
+                                <li>
+                                    回复：<span><%=suggest.reply%></span>
+                                </li>
+                                <li>
+                                    时间：<span><%=suggest.addDate.toLocaleDateString()%></span>
+                                </li>
                             </ul>
                             <%})%>
                         </div>
@@ -537,6 +544,27 @@
     </div>
     <!--我要申请模态框结束-->
 </div>
+<!-- 回到顶部 -->
+<div id="boxbtn" class="boxbtn hidden-xs">
+    <div class="box-in">
+    </div>
+</div>
+<script>
+    var timer  = '';
+    boxbtn.onclick = function(){
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn(){
+            var toTop = document.body.scrollTop || document.documentElement.scrollTop;
+            if(toTop > 0){
+                document.body.scrollTop = document.documentElement.scrollTop = toTop - 100;
+                timer = requestAnimationFrame(fn);
+            }else{
+                cancelAnimationFrame(timer);
+            }
+        });
+    }
+</script>
+<!-- 回到顶部结束 -->
 </body>
 </html>
 <script type="text/javascript" src="js/index.js"></script>
