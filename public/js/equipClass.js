@@ -41,17 +41,28 @@ var vm = new Vue({
                 This.startNum -= 3;
                 This.endNum -= 3;
             }
+        },
+        borrowBtn:function () {
+            console.log(111);
+            $('#borrowModal').modal('show');
         }
     },
     created(){
             var This = this;
             $.ajax({
             url:'/lazyLoad',
-            type:'POST',
+            type:'GET',
             dataType:'JSON',
-            data:{},
         }).done(function (data) {
             console.log(data.lazyData);
+            console.log(data.lazyData[1].equipArr)
+/*            var nowEquipname=nowEquipArr[0].equipName;
+            for(var i=0;i<nowEquipArr.length;i++){
+                   if(nowEquipname==nowEquipArr[i]){
+
+                   }
+            }*/
+
             This.loadData = data.lazyData;
         })
         if(This.startNum == 0) {
@@ -69,7 +80,7 @@ var vm = new Vue({
         }*/
         var No = $('.showEquipmentRow').attr('equipNo');
         console.log(No);
-        $.ajax({
+       /* $.ajax({
             url:'loadEquipInfo',
             type:'POST',
             dataType:'JSON',
@@ -77,7 +88,24 @@ var vm = new Vue({
         }).done(function (data) {
             var equipOneMsg = data.equipOne;
             console.log(equipOneMsg);
-        })
+        })*/
     }
 });
+// 申请模态框
+$('.showEquipment').on('click','borrowbtn',function () {
+    console.log(1111)
+    $('#borrowModal').modal('show');
+})
+// $(function () {
+//     $('#id_ad_search').click(function(){
+//         var name = $('#id_name').val();
+//         $.ajax({
+//             url:'/test',
+//             data:{name:name},
+//             complete:function () {
+//                 $('#borrowModal').modal('hide');
+//             }
+//         })
+//     });
+// });
 
