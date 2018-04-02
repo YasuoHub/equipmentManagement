@@ -190,6 +190,35 @@ app.post('/reserveBorrow',urlencodedParser,function (req,res) {
         }
     })
 });
+//保存从详情页提交的借用申请
+app.post('/referBorrowMsg',urlencodedParser,function (req,res) {
+    //初始化数据查询对象
+    var dao = new UserDao();
+    //2，数据初始化，连接数据库
+    dao.init();
+    console.log("我是reserveBorrow");
+    console.log(req.body);
+    //1,从body里面获得提交的数据
+    var  equipName= req.body.equipName;
+    var  equipNo= req.body.equipClass;
+    var  equipID= req.body.equipID;
+    var  userTel= req.body.userTel;
+    var  expectedReturnDate=req.body.returnTime;
+    var  userID=req.session.username;
+    var  userName= req.session.stuRealName;
+    var  addDate= new Date().toLocaleDateString();
+    //执行插入
+    var cluarr=['userID','userName','userTel','equipID','equipName','expectedReturnDate','addDate','readSatus'];
+    var Paramsarr=[userID,userName,userTel,equipID,equipName,expectedReturnDate,addDate,'1'];
+    dao.insert(cluarr,Paramsarr,'userdetails',function () {
+        console.log("添加一条记录")
+    }) ;
+    dao.updateRate(['canBorrow'],['0'],['equipID'],equipID,'equipmentone',function () {
+        console.log("更改一次canborrow状态");
+    });
+        dao.finish();
+        return  res.end('1');
+});
 //保存归还信息
 app.post('/reserveReturn',urlencodedParser,function (req,res) {
     //初始化数据查询对象

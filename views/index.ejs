@@ -83,10 +83,10 @@
                 </div>
                 <div class="stuPhoto">
                     <% if(user[0].sex == 0){%>
-                    <img width="80px" height="80px" src="img/boy.jpg" alt="">
+                    <img width="80px" height="80px" src="img/girl.jpg" alt="">
                     <%}%>
                     <% if(user[0].sex == 1){%>
-                    <img width="80px" height="80px" src="img/girl.jpg" alt="">
+                    <img width="80px" height="80px" src="img/boy.jpg" alt="">
                     <%}%>
                 </div>
                 <div class="stuMsg">
@@ -166,26 +166,6 @@
                             </li>
                             <% }) %>
                             <% } %>
-                            <!--<li data-slide="0" >
-                                <img class="thumbnail" src="img/equip6.jpg" alt="" width="150">
-                                <p>传感器</p>
-                            </li>
-                            <li data-slide="1"  class="">
-                                <img class="thumbnail" src="img/equip10.jpg" alt="" width="150">
-                                <p>传感器</p>
-                            </li>
-                            <li data-slide="2"  class="">
-                                <img class="thumbnail" src="img/equip6.jpg" alt="" width="150">
-                                <p>传感器</p>
-                            </li>
-                            <li data-slide="3"  class="">
-                                <img class="thumbnail" src="img/equip7.jpg" alt="" width="150">
-                                <p>传感器</p>
-                            </li>
-                            <li data-slide="4"  class="">
-                                <img class="thumbnail" src="img/equip8.jpg" alt="" width="150">
-                                <p>传感器</p>
-                            </li>-->
                         </ul>
                     </div>
                 </div>
@@ -410,7 +390,7 @@
                                     内容： <span><%=suggest.content%></span>
                                 </li>
                                 <li>
-                                    回复：<span><%=suggest.reply%></span>
+                                    回复：<span><%=suggest.reply?suggest.reply:'（审核中）'%></span>
                                 </li>
                                 <li>
                                     时间：<span><%=suggest.addDate.toLocaleDateString()%></span>
