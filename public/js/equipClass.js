@@ -80,15 +80,6 @@ var vm = new Vue({
         }*/
         var No = $('.showEquipmentRow').attr('equipNo');
         console.log(No);
-       /* $.ajax({
-            url:'loadEquipInfo',
-            type:'POST',
-            dataType:'JSON',
-            data:{}
-        }).done(function (data) {
-            var equipOneMsg = data.equipOne;
-            console.log(equipOneMsg);
-        })*/
     }
 });
 // 申请模态框
@@ -96,16 +87,5 @@ $('.showEquipment').on('click','borrowbtn',function () {
     console.log(1111)
     $('#borrowModal').modal('show');
 })
-// $(function () {
-//     $('#id_ad_search').click(function(){
-//         var name = $('#id_name').val();
-//         $.ajax({
-//             url:'/test',
-//             data:{name:name},
-//             complete:function () {
-//                 $('#borrowModal').modal('hide');
-//             }
-//         })
-//     });
-// });
+
 
