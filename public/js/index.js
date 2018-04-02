@@ -157,6 +157,11 @@ let vm = new Vue({
                 $('.inputborrowNum').removeClass('alert alert-warning');
                 $('.referBtn').removeAttr("disabled","disabled");
             }
+        },
+        getClassInfo:function (e) {
+            var $url='equipClassInfo?id='+e.target.id;
+            console.log($url);
+           window.location.href=$url;
         }
     }
 })
