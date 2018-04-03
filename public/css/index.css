@@ -239,6 +239,9 @@ body {
     /*-webkit-padding-start: 15px;*/
 }
 .noticeMsg li{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
     margin-bottom: 10px;
 }
 /*公约、公告结束*/

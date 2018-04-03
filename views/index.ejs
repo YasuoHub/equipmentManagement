@@ -61,7 +61,7 @@
                         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>搜索</button>
                     </form>-->
                     <ul class="loginUl nav navbar-nav navbar-right">
-                        <li class="managerLogin"><a href="manager">管理员登陆</a></li>
+                        <li class="managerLogin"><a href="http://localhost:8088/">管理员登陆</a></li>
                         <li class="logout"><a href="/">注销</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
@@ -139,7 +139,7 @@
                 <div class="noticeMsgBox">
                     <ul class="noticeMsg">
                         <% datas.forEach(function (value) {%>
-                        <li><%=value.content%></li>
+                        <li><a bid="<%=value.bid%>" newstitle="<%=value.title%>"><%=value.content%></a></li>
                         <%})%>
                     </ul>
                 </div>
@@ -161,8 +161,10 @@
                             <% if (equipsAll.length) { %>
                             <% equipsAll.forEach(function(equipAll,index){ %>
                             <li data-slide="<%=index%>" >
+                                <a href="equipClassInfo?id=<%=equipAll.equipAllNo%>">
                                 <img class="thumbnail" src="<%=equipAll.equipImage%>" alt="" width="170px" height="170px">
                                 <p class="imgMsg"><%=equipAll.equipName%></p>
+                                </a>
                             </li>
                             <% }) %>
                             <% } %>
@@ -295,11 +297,8 @@
                 <div class="modal-body">
                     <div class="input-group">
                         <div class="form-group">
-                            <ul>
-                                <% datas.forEach(function (value) {%>
-                                <li><%=value.content%></li>
-                                <%})%>
-                            </ul>
+                           <h4 id="newsTitle"></h4>
+                            <p id="newsContent"></p>
                         </div>
                     </div>
                 </div>
@@ -347,7 +346,7 @@
                 <div class="modal-body returnModal" style="display: none">
                     <div class="input-group">
                         <div class="form-group">
-                            <ul v-for="borrowFbInfo in borrowFeedback" v-if="borrowFbInfo.loanStatus==1&&borrowFbInfo.returnExamineStatus==0&&borrowFbInfo.returnApplyDate">
+                            <ul v-for="borrowFbInfo in borrowFeedback" v-if="borrowFbInfo.loanStatus==1&&borrowFbInfo.returnApplyDate">
                                 <li>设备编号：<span>{{borrowFbInfo.equipID}}</span></li>
                                 <li>设备名称：<span>{{borrowFbInfo.equipName}}</span></li>
                                 <li>归还时间：<span>{{borrowFbInfo.returnApplyDate}}</span></li>

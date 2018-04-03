@@ -194,8 +194,12 @@ $(function () {
 });
 
 //    公告模态框
-$('.noticeMsg').on('click','li',function () {
+$('.noticeMsg').on('click','li',function (e) {
     $('#noticeModal').modal('show');
+    console.log(e);
+    console.log(e.target);
+   $('#newsTitle').html($(e.target).attr('newstitle'));
+   $('#newsContent').html($(e.target).html());
 })
 $(function () {
     $('#id_ad_search').click(function(){
