@@ -45,7 +45,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="/index">首页 <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">机构设置</a></li>
                         <li><a href="#">实验室管理</a></li>
                         <li class="active"><a href="#">实验设备管理</a></li>
@@ -102,8 +102,8 @@
                     <p class="suggest">建议</p>
                 </div>
                 <div class="manager">
-                    <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span>管理员：<%=rates[new Date().getDay()].rateManName%></p>
-                    <p><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>联系方式：<%=rates[new Date().getDay()].rateManPhone%></p>
+                    <p><span class="glyphicon glyphicon-user" aria-hidden="true"></span>管理员：<%=rates[(new Date().getDay()==0?'7':new Date().getDay())-1].rateManName%></p>
+                    <p><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>联系方式：<%=rates[(new Date().getDay()==0?'7':new Date().getDay())-1].rateManPhone%></p>
                 </div>
             </div>
             <!--个人信息结束-->

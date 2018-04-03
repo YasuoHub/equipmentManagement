@@ -86,6 +86,10 @@ let vm = new Vue({
                 }
                 var inputDate = $('#inputDate').val();
                 var userTel= $('#userTel').val();
+                if(!This.selected||!This.inputNum||!inputDate||!userTel||!This.nowEquipName){
+                    alert("请检查输入项，请全部输入以后再借用");
+                    return;
+                }
                 $.ajax({
                     url:'reserveBorrow',
                     type:'POST',
@@ -107,8 +111,8 @@ let vm = new Vue({
             if(This.flag == false){
                 var attrArray = [];
                 console.log($('#noteForm2').serialize());
-                if(!$('.inputReturnDate').val()){
-                    alert('归还时间不能为空，请按规定格式填写');
+                if(!$('.inputReturnDate').val()||!$('#noteForm2').serialize()){
+                    alert('归还时间或归还设备不能为空，请按规定格式填写');
                     return ;
                 }
                 $.ajax({
@@ -283,6 +287,10 @@ Vue.filter('time', function (value) {
 $('.suggestInfoBtn').on('click',function() {
     var This = this;
     var suggestInfo=$('#suggestInfo').val();
+    if(!suggestInfo){
+        alert('建议内容不能为空');
+        return;
+    }
     $.ajax({
         url: 'sendSuggestInfo',
         type: 'POST',
@@ -302,4 +310,3 @@ $('.treatyList').mouseover(function () {
 $('.treatyList').mouseout(function () {
     $('.treatyList').css('overflow-y','hidden');
 })
-console.log($('.suggestBack').children())

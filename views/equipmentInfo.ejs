@@ -45,7 +45,7 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="/index">首页 <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">机构设置</a></li>
                         <li><a href="#">实验室管理</a></li>
                         <li class="active"><a href="#">实验设备管理</a></li>
@@ -262,6 +262,10 @@
             var equipID = $('#inputNum3').val();
             var userTel = $('#inputTel3').val();
             var returnTime = $('#inputDate3').val();
+            if(!userTel||!returnTime){
+                alert("请填写您的联系方式或归还时间");
+                return;
+            }
             $.ajax({
                 url:'/referBorrowMsg',
                 type:'POST',
